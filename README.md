@@ -1,2 +1,0 @@
-# LBAW
-LBAW's project
