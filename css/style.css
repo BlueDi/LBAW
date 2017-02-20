@@ -153,8 +153,6 @@ h2 {
 
 .button{
   cursor:pointer;
-  transition:background .3s;
-  -webkit-transition:background .3s;
 }
 
 #login{
