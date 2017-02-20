@@ -149,6 +149,43 @@ h2 {
 	margin: 20px 0;
 }
 
+
+#login{
+  width:260px;
+  margin:0 auto;
+  margin-top:8px;
+  margin-bottom:2%;
+  transition:opacity 1s;
+  -webkit-transition:opacity 1s;
+}
+
+form{
+  right: 10px;
+  position: absolute;
+  background:#f0f0f0;
+  padding:6% 4%;
+}
+
+input[type="email"],input[type="password"]{
+  width: 100%;
+  background:#fff;
+  margin-bottom:4%;
+  border:1px solid #ccc;
+  padding:4%;
+  font-family:'Open Sans',sans-serif;
+  font-size:95%;
+  color:#555;
+}
+
+input[type="submit"]{
+  border:0;
+  padding:4%;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* End Login */
+
 /* Sigma BG Colors --- BEGIN */
 
 .sigma-bg-lightgray {

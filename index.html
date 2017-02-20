@@ -49,6 +49,14 @@ http://www.templatemo.com/tm-479-sigma
                       <a class="nav-link" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item">
+                      <span href="#" class="button" id="toggle-login">Log in</span>
+                      <form id="login">
+                        <input type="email" placeholder="Email" />
+                        <input type="password" placeholder="Password" />
+                        <input type="submit" value="Log in" />
+                      </form>
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link external" href="http://www.google.com/+templatemo" title="+templatemo page" target="_parent">External</a>
                     </li>
                   </ul>
@@ -321,41 +329,42 @@ http://www.templatemo.com/tm-479-sigma
 
 </footer>
 
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-        <script src="js/ekko-lightbox.min.js"></script>
-        <script src="js/jquery.singlePageNav.min.js"></script>
-        <script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/ekko-lightbox.min.js"></script>
+  <script src="js/jquery.singlePageNav.min.js"></script>
+  <script src="js/login.js"></script>
+  <script>
 
-            // Prevent console.log from generating errors in IE for the purposes of the demo
-            if ( ! window.console ) console = { log: function(){} };
+    // Prevent console.log from generating errors in IE for the purposes of the demo
+    if ( ! window.console ) console = { log: function(){} };
 
-            // The actual plugin
-            $('.single-page-nav').singlePageNav({
-                offset: $('.single-page-nav').outerHeight(),
-                filter: ':not(.external)',
-                updateHash: true,
-                beforeStart: function() {
-                    console.log('begin scrolling');
-                },
-                onComplete: function() {
-                    console.log('done scrolling');
-                }
-            });
+    // The actual plugin
+    $('.single-page-nav').singlePageNav({
+        offset: $('.single-page-nav').outerHeight(),
+        filter: ':not(.external)',
+        updateHash: true,
+        beforeStart: function() {
+            console.log('begin scrolling');
+        },
+        onComplete: function() {
+            console.log('done scrolling');
+        }
+    });
+    
+    $(document).ready(function ($) {
+
+      // delegate calls to data-toggle="lightbox"
+      $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+        event.preventDefault();
+        return $(this).ekkoLightbox({
+          always_show_close: true
+        });
+      });
+
+    });
 			
-			$(document).ready(function ($) {
-
-				// delegate calls to data-toggle="lightbox"
-				$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
-					event.preventDefault();
-					return $(this).ekkoLightbox({
-						always_show_close: true
-					});
-				});
-
-			});
-			
-        </script>
+  </script>
 
 </body>
 </html>
