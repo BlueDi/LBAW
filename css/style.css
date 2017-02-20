@@ -149,6 +149,13 @@ h2 {
 	margin: 20px 0;
 }
 
+/* Login */
+
+.button{
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
 
 #login{
   width:260px;
