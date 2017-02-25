@@ -1,18 +1,22 @@
-$('#toggle-login_popup').click(function(){
-  $('#login_popup').toggle();
-});
+window.onload = function () {
 
-$('.tab a').on('click', function (e) {
+  $('#toggle-login_popup').click(function(){
+    $('#login_popup').toggle();
+  });
 
-  e.preventDefault();
+  $('.tab a').on('click', function (e) {
 
-  $(this).parent().addClass('active');
-  $(this).parent().siblings().removeClass('active');
+    e.preventDefault();
 
-  target = $(this).attr('href');
+    $(this).parent().addClass('active');
+    $(this).parent().siblings().removeClass('active');
 
-  $('.tab-content > div').not(target).hide();
+    target = $(this).attr('href');
 
-  $(target).fadeIn(600);
+    $('.tab-content > div').not(target).hide();
 
-});
+    $(target).fadeIn(600);
+
+  });
+
+}

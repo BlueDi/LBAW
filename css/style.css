@@ -71,6 +71,7 @@ h2 {
 }
 
 .nav-link {
+  cursor: pointer;
 	padding: 0px;
 	font-size: 18px;
   text-align: center;
