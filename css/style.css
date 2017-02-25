@@ -1,4 +1,4 @@
-/* 
+/*
 
 Sigma Template
 
@@ -71,9 +71,13 @@ h2 {
 }
 
 .nav-link {
-	padding: 10px 15px;
+	padding: 0px;
 	font-size: 18px;
+  text-align: center;
+  margin: inherit;
 }
+
+
 
 .sigma-hr {
    	margin: 15px -15px !important;
@@ -101,7 +105,7 @@ h2 {
 	padding: 0px;
 	padding-top: 150px;
 	padding-bottom: 150px;
-	background: url(../images/tm-sigma-00.jpg) no-repeat center center fixed; 
+	background: url(../images/tm-sigma-00.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -132,7 +136,7 @@ h2 {
 	padding: 0px;
 	padding-top: 100px;
 	padding-bottom: 80px;
-	background: url(../images/tm-sigma-00.jpg) no-repeat center center fixed; 
+	background: url(../images/tm-sigma-00.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -151,12 +155,56 @@ h2 {
 
 /* Login */
 
-.button{
+
+.form {
+  background:rgba($form-bg,.9);
+  max-width:600px;
+  border-radius:$br;
+  box-shadow:0 4px 10px 4px rgba($form-bg,.3);
+}
+
+.tab-content > div:last-child {
+  display:none;
+}
+
+label.highlight {
+	color:$white;
+}
+
+.button {
   cursor:pointer;
+  border:0;
+  outline:none;
+  border-radius:0;
+  padding:15px 0;
+  font-size:2rem;
+  font-weight:$bold;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  background:$main;
+  color:$white;
+}
+
+.button-block {
+  margin-bottom: -8px;
+  display:block;
+  width:100%;
+}
+
+.forgot {
+  margin-top:-20px;
+  text-align:right;
+}
+
+.tab-content {
+  text-align:center;
+  width: 100%;
+  margin-top: 68px; //esta linha corrige o popup do login para ir um bocado para baixo
 }
 
 #login{
-  width:260px;
+  float: left;
+  width: 100%;
   margin:0 auto;
   margin-top:8px;
   margin-bottom:2%;
@@ -164,16 +212,19 @@ h2 {
   -webkit-transition:opacity 1s;
 }
 
-form{
-  right: 10px;
+#login_popup{
+  display: inline;
+  right: 0px;
   position: absolute;
   background:#f0f0f0;
-  padding:6% 4%;
+  width: 65%;
+}
+
+input {
+  width: 100%;
 }
 
 input[type="email"],input[type="password"]{
-  width: 100%;
-  background:#fff;
   margin-bottom:4%;
   border:1px solid #ccc;
   padding:4%;
@@ -258,7 +309,7 @@ input[type="submit"]{
 	h1 {
 		font-size: 28px;
 	}
-	
+
 	h2 {
 		font-size: 24px;
 	}
@@ -291,7 +342,6 @@ input[type="submit"]{
 
 @media (max-width:767px) {
 	.nav-link {
-		padding: 5px 10px;
 		font-size: 16px;
 	}
 	.sigma-home h1 {
