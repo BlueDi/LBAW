@@ -1,3 +1,3 @@
-<?php include("header.html");?>
-<?php include("homepage.html");?>
-<?php include("footer.html");?>
+<?php include("templates/header.html");?>
+<?php include("templates/index.html");?>
+<?php include("templates/footer.html");?>
