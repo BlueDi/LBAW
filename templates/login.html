@@ -11,31 +11,30 @@
 <!-- banner -->
 	<div class="banner">
 		<div class="w3l_banner_nav_left">
-      <nav class="navbar nav_bottom">
+			<nav class="navbar nav_bottom">
 			 <!-- Brand and toggle get grouped for better mobile display -->
-			  <div class="navbar-header nav_2">
-				  <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+				<div class="navbar-header nav_2">
+					<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-				  </button>
-			   </div> 
-			   <!-- Collect the nav links, forms, and other content for toggling -->
+					</button>
+				 </div>
+				 <!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
 						<li><a href="products.php">Branded Foods</a></li>
-						<li><a href="household.php">Households</a></li>
 						<li class="dropdown mega-dropdown active">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Veggies & Fruits<span class="caret"></span></a>				
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Arrumação para a sala<span class="caret"></span></a>
 							<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
 								<div class="w3ls_vegetables">
-									<ul>	
-										<li><a href="vegetables.php">Vegetables</a></li>
-										<li><a href="vegetables.php">Fruits</a></li>
+									<ul>
+										<li><a href="estantes.php">Estantes</a></li>
+										<li><a href="estantes.php">Prateleiras</a></li>
 									</ul>
-								</div>                  
-							</div>				
+								</div>
+							</div>
 						</li>
 						<li><a href="kitchen.php">Kitchen</a></li>
 						<li><a href="short-codes.php">Short Codes</a></li>
@@ -47,71 +46,59 @@
 										<li><a href="drinks.php">Soft Drinks</a></li>
 										<li><a href="drinks.php">Juices</a></li>
 									</ul>
-								</div>                  
-							</div>	
+								</div>
+							</div>
 						</li>
-						<li><a href="pet.php">Pet Food</a></li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
-							<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
-								<div class="w3ls_vegetables">
-									<ul>
-										<li><a href="frozen.php">Frozen Snacks</a></li>
-										<li><a href="frozen.php">Frozen Nonveg</a></li>
-									</ul>
-								</div>                  
-							</div>	
-						</li>
-						<li><a href="bread.php">Bread & Bakery</a></li>
+						<li><a href="bancos.php">Bancos</a></li>
 					</ul>
 				 </div><!-- /.navbar-collapse -->
 			</nav>
 		</div>
 		<div class="w3l_banner_nav_right">
-<!-- login -->
-		<div class="w3_login">
-			<h3>Sign In & Sign Up</h3>
-			<div class="w3_login_module">
-				<div class="module form-module">
-				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
-					<div class="tooltip">Click Me</div>
-				  </div>
-				  <div class="form">
-					<h2>Login to your account</h2>
-					<form action="#" method="post">
-					  <input type="text" name="Username" placeholder="Username" required=" ">
-					  <input type="password" name="Password" placeholder="Password" required=" ">
-					  <input type="submit" value="Login">
-					</form>
-				  </div>
-				  <div class="form">
-					<h2>Create an account</h2>
-					<form action="#" method="post">
-					  <input type="text" name="Username" placeholder="Username" required=" ">
-					  <input type="password" name="Password" placeholder="Password" required=" ">
-					  <input type="email" name="Email" placeholder="Email Address" required=" ">
-					  <input type="text" name="Phone" placeholder="Phone Number" required=" ">
-					  <input type="submit" value="Register">
-					</form>
-				  </div>
-				  <div class="cta"><a href="#">Forgot your password?</a></div>
+			<!-- login -->
+			<div class="w3_login">
+				<h3>Sign In & Sign Up</h3>
+				<div class="w3_login_module">
+					<div class="module form-module">
+					  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+						<div class="tooltip">Click Me</div>
+					  </div>
+					  <div class="form">
+						<h2>Login to your account</h2>
+						<form action="#" method="post">
+						  <input type="text" name="Username" placeholder="Username" required=" ">
+						  <input type="password" name="Password" placeholder="Password" required=" ">
+						  <input type="submit" value="Login">
+						</form>
+					  </div>
+					  <div class="form">
+						<h2>Create an account</h2>
+						<form action="#" method="post">
+						  <input type="text" name="Username" placeholder="Username" required=" ">
+						  <input type="password" name="Password" placeholder="Password" required=" ">
+						  <input type="email" name="Email" placeholder="Email Address" required=" ">
+						  <input type="text" name="Phone" placeholder="Phone Number" required=" ">
+						  <input type="submit" value="Register">
+						</form>
+					  </div>
+					  <div class="cta"><a href="#">Forgot your password?</a></div>
+					</div>
 				</div>
+				<script>
+					$('.toggle').click(function(){
+					  // Switches the Icon
+					  $(this).children('i').toggleClass('fa-pencil');
+					  // Switches the forms
+					  $('.form').animate({
+						height: "toggle",
+						'padding-top': 'toggle',
+						'padding-bottom': 'toggle',
+						opacity: "toggle"
+					  }, "slow");
+					});
+				</script>
 			</div>
-			<script>
-				$('.toggle').click(function(){
-				  // Switches the Icon
-				  $(this).children('i').toggleClass('fa-pencil');
-				  // Switches the forms  
-				  $('.form').animate({
-					height: "toggle",
-					'padding-top': 'toggle',
-					'padding-bottom': 'toggle',
-					opacity: "toggle"
-				  }, "slow");
-				});
-			</script>
-		</div>
-<!-- //login -->
+			<!-- //login -->
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -124,7 +111,7 @@
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 				</div>
 				<h3>Nam libero tempore</h3>
-				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
+				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
 					saepe eveniet ut et voluptates repudiandae sint et.</p>
 			</div>
 			<div class="col-md-4 wthree_news_top_serv_btm_grid">
@@ -132,7 +119,7 @@
 					<i class="fa fa-bar-chart" aria-hidden="true"></i>
 				</div>
 				<h3>officiis debitis aut rerum</h3>
-				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
+				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
 					saepe eveniet ut et voluptates repudiandae sint et.</p>
 			</div>
 			<div class="col-md-4 wthree_news_top_serv_btm_grid">
@@ -140,7 +127,7 @@
 					<i class="fa fa-truck" aria-hidden="true"></i>
 				</div>
 				<h3>eveniet ut et voluptates</h3>
-				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
+				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus
 					saepe eveniet ut et voluptates repudiandae sint et.</p>
 			</div>
 			<div class="clearfix"> </div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Webstore | Frozen Food</title>
+<title>House - Your home design helper</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,7 +12,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
 <!-- //font-awesome icons -->
 <!-- js -->
 <script src="js/jquery-3.1.1.min.js"></script>
@@ -24,7 +24,7 @@
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event){		
+		$(".scroll").click(function(event){
 			event.preventDefault();
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
@@ -32,7 +32,7 @@
 </script>
 <!-- start-smoth-scrolling -->
 </head>
-	
+
 <body>
 <!-- header -->
 	<div class="agileits_header">
@@ -45,7 +45,7 @@
 				<input type="submit" value=" ">
 			</form>
 		</div>
-		<div class="product_list_header">  
+		<div class="product_list_header">
 			<form action="#" method="post" class="last">
                 <fieldset>
                     <input type="hidden" name="cmd" value="_cart" />
@@ -61,11 +61,11 @@
 					<div class="mega-dropdown-menu">
 						<div class="w3ls_vegetables">
 							<ul class="dropdown-menu drp-mnu">
-								<li><a href="login.php">Login</a></li> 
+								<li><a href="login.php">Login</a></li>
 								<li><a href="login.php">Sign Up</a></li>
 							</ul>
-						</div>                  
-					</div>	
+						</div>
+					</div>
 				</li>
 			</ul>
 		</div>
@@ -79,14 +79,14 @@
 	$(document).ready(function() {
 		 var navoffeset=$(".agileits_header").offset().top;
 		 $(window).scroll(function(){
-			var scrollpos=$(window).scrollTop(); 
+			var scrollpos=$(window).scrollTop();
 			if(scrollpos >=navoffeset){
 				$(".agileits_header").addClass("fixed");
 			}else{
 				$(".agileits_header").removeClass("fixed");
 			}
 		 });
-		 
+
 	});
 	</script>
 <!-- //script-for sticky-nav -->
