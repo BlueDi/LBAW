@@ -277,9 +277,7 @@ ul.dropdown-menu.drp-mnu li a i {
 }
 .w3ls_vegetables ul li {
   list-style-type: none;
-}
-.w3ls_vegetables ul li:first-child {
-  margin-bottom:.5em;
+  margin:.5em 0em;
 }
 .w3ls_vegetables ul li a {
   color: #212121;
@@ -459,7 +457,7 @@ ul.dropdown-menu.drp-mnu li a i {
 .wthree_banner_btm_pos1{
   position:absolute;
   top: 50%;
-  left: 12%;
+  left: 5%;
 }
 .wthree_banner_btm_pos1 h3{
   text-transform:uppercase;
