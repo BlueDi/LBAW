@@ -1,30 +1,47 @@
-<table class="table">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>Username</th>
-            <th>Type of user</th>
-			<th>Last acess</th>
-			<th>option</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<th scope="row">1</th>
-			<td>Mark</td>
-            <td>Registered User</td>
-			<td>20/05/10</td>
-			<td><input type="submit" name="remove" value="remove" class="button" /></td>
-            <td><input type="submit" name="admin" value="promote to admin" class="button" /></td>
-            
-		</tr>
-        <tr>
-			<th scope="row">2</th>
-			<td>Blitzcranck</td>
-            <td>Admin</td>
-			<td>20/05/11</td>
-			<td><input type="submit" name="remove" value="remove" class="button" /></td>
-            
-		</tr>
-	</tbody>
-</table>
+<!-- products-breadcrumb -->
+<div class="products-breadcrumb">
+	<div class="container">
+		<ul>
+			<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
+			<li>Admin</li>
+		</ul>
+	</div>
+</div>
+<!-- //products-breadcrumb -->
+<!-- banner -->
+<div class="banner">
+	<?php include("templates/sidebar.html");?>
+	<div class="w3l_banner_nav_right">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Username</th>
+					<th>Type of user</th>
+					<th>Last acess</th>
+					<th>option</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Registered User</td>
+					<td>20/05/10</td>
+					<td><input type="submit" name="remove" value="remove" class="button" /></td>
+					<td><input type="submit" name="admin" value="promote to admin" class="button" /></td>
+
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Blitzcranck</td>
+					<td>Admin</td>
+					<td>20/05/11</td>
+					<td><input type="submit" name="remove" value="remove" class="button" /></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="clearfix"></div>
+</div>
