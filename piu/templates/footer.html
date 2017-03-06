@@ -101,30 +101,28 @@ $(document).ready(function(){
 <!-- here stars scrolling icon -->
 	<script type="text/javascript">
 		$(document).ready(function() {
-			/*
 				var defaults = {
 				containerID: 'toTop', // fading element id
 				containerHoverID: 'toTopHover', // fading element hover id
 				scrollSpeed: 1200,
 				easingType: 'linear'
 				};
-			*/
 
 			$().UItoTop({ easingType: 'easeOutQuart' });
 
 			});
 	</script>
 <!-- //here ends scrolling icon -->
-<script src="js/minicart.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.6/minicart.min.js"></script>
 <script>
 	// Mini Cart
-	paypal.minicart.render({
-		action: '#'
-	});
+	paypal.minicart.render();
 
 	if (~window.location.search.indexOf('reset=true')) {
 		paypal.minicart.reset();
 	}
 </script>
+<!--Paypal-->
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 </body>
 </html>

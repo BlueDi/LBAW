@@ -35,7 +35,7 @@
 											<h4>35€ <span>40€</span></h4>
 										</div>
 										<div class="snipcart-details">
-											<form action="#" method="post">
+											<form method="post" action="https://www.paypal.com/cgi-bin/webscr" target="paypal">
 												<fieldset>
 													<input type="hidden" name="cmd" value="_cart" />
 													<input type="hidden" name="add" value="1" />
@@ -44,8 +44,8 @@
 													<input type="hidden" name="amount" value="40.00" />
 													<input type="hidden" name="discount_amount" value="5.00" />
 													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
+													<input type="hidden" name="return" value="http://minicartjs.com/thank-you/" />
+													<input type="hidden" name="cancel_return" value="http://minicartjs.com/cancel/" />
 													<input type="submit" name="submit" value="Add to cart" class="button" />
 												</fieldset>
 											</form>
