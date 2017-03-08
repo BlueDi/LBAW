@@ -13,6 +13,11 @@ h1,h2,h3,h4,h5,h6,a{
   font-family:'Ubuntu', sans-serif !important;
   margin:0;
 }
+
+a.normal-link {
+  color: inherit;
+}
+
 ul,label{
   margin:0;
   padding:0;
