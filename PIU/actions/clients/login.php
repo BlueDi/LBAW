@@ -1,6 +1,6 @@
 <?php
 include_once('../../config/init.php');
-include("../../database/clients.php");
+include($BASE_DIR.'/database/clients.php');
 			$username=$_POST['Username'];
 			$password=$_POST['Password'];
 
