@@ -1,6 +1,6 @@
 <?php
   include_once('../../config/init.php');
-  include_once($BASE_DIR .'database/users.php');  
+  include_once($BASE_DIR .'database/clients.php');  
 
   if (!$_POST['username'] || !$_POST['realname'] || !$_POST['password']) {
     $_SESSION['error_messages'][] = 'All fields are mandatory';
@@ -17,7 +17,7 @@
   $extension = end(explode(".", $photo["name"]));
 
   try {
-    createUser($realname, $username, $password);
+    createclient($realname, $username, $password);
     move_uploaded_file($photo["tmp_name"], $BASE_DIR . "images/users/" . $username . '.' . $extension); // this is dangerous
     chmod($BASE_DIR . "images/users/" . $username . '.' . $extension, 0644);
   } catch (PDOException $e) {

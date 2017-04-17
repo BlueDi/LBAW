@@ -11,7 +11,7 @@
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $db->exec("SET	search_path	TO	schema");
+  $conn->exec('SET SCHEMA \'public\'');
 
   include_once($BASE_DIR . 'lib/smarty/Smarty.class.php');
   

@@ -12,6 +12,6 @@
                             FROM client
                             WHERE username = ? AND password = ?");
     $stmt->execute(array($username, sha1($password)));
-    return $stmt->fetch() == true;
+    return $stmt->fetch()==true;
   }
 ?>
