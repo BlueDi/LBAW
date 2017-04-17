@@ -12,7 +12,7 @@ include($BASE_DIR.'/database/clients.php');
                 echo'<script language="javascript">';
 				echo 'alert("Correct username and/or password.")';
                 echo '</script>';
-                $redirectUrl = '../../products.php';
+                $redirectUrl = '../../pages/products.php';
 				echo '<script type="application/javascript">window.location.href = "'.$redirectUrl.'";</script>';
                 
             }
@@ -21,7 +21,7 @@ include($BASE_DIR.'/database/clients.php');
                 echo'<script language="javascript">';
 				echo 'alert("inCorrect username and/or password.")';
 				echo '</script>';
-                $redirectUrl = 'products.php';
+                $redirectUrl = '../../pages/login.php';
 				echo '<script type="application/javascript">window.location.href = "'.$redirectUrl.'";</script>';
                 
             }
