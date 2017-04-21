@@ -5,7 +5,7 @@
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
 
   $BASE_DIR = '/opt/lbaw/lbaw1621/public_html/PIU/';
-  $BASE_URL = '/~lbaw1621/PIU/';
+  $BASE_URL = '/~lbaw1621/PIU/pages/index.php';
 
   $conn = new PDO('pgsql:host=dbm;dbname=lbaw1621', 'lbaw1621', 'vx55rg37');
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);

@@ -6,9 +6,12 @@ include($BASE_DIR.'/database/clients.php');
 
             
 
-            if(isLoginCorrect($username,$password)){
+            if(isLoginCorrect($username,$password)==true){
                 
 				$_SESSION['login_user'] = $username;
+                $_SESSION['iduser']= isLoginCorrect($username,$password)['iduser'];
+                
+                $_SESSION['admin']=isLoginCorrect($username,$password)['admin'];
                 echo'<script language="javascript">';
 				echo 'alert("Correct username and/or password.")';
                 echo '</script>';

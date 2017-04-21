@@ -19,43 +19,34 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
-					<div class=" col-md-9 col-lg-9 ">
-						<table class="table table-user-information">
-							<tbody>
-								<tr>
-									<td>Profile creation:</td>
-									<td>23/06/2013</td>
-								</tr>
-								<tr>
-									<td>Date of Birth</td>
-									<td>24/01/1988</td>
-								</tr>
-
-								<tr>
-									<tr>
-										<td>Gender</td>
-										<td>Female</td>
-									</tr>
-									<tr>
-										<td>Home Address</td>
-										<td>Kathmandu,Nepal</td>
-									</tr>
-									<tr>
-										<td>Email</td>
-										<td><a href="mailto:info@support.com">info@support.com</a></td>
-									</tr>
-									<td>Phone Number</td>
-									<td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-									</td>
-
-								</tr>
-
-							</tbody>
-						</table>
+					<div class="user_form">
+						<form action="../actions/clients/update.php" method="post">
+							<div class="form-input">Username:
+								<input type="text" name="username" placeholder="Enter username">
+							</div>
+							<div class="form-input">Passowrd:
+								<input type="password" name="password" placeholder="Enter password">
+							</div>
+							<div class="form-input">Email:
+								<input type="email" name="email" placeholder=" ex: luis123@fe.up.pt">
+							</div>
+							<div class="form-input">Bithdate:
+								<input type="date" name="bdate" placeholder="mm/dd/yyyy" required="">
+							</div>
+							<div class="form-input">Address:
+								<input type="text" name="Address" placeholder="home address" required="">
+							</div>
+							<div class="form-input">Phone Number:
+								<input type="" name="Phone Number" placeholder="123456789" required="">
+							</div>	
+							<div>
+							 	<input type="Submit" name="submit" value="Submit" class="submit-button">
+							</div>
+						</form>
 						<div class="panel-footer">
 							<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
 							<span class="pull-right">
-								<a href="../pages/editProfile.php" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+								<a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
 								<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
 							</span>
 						</div>
