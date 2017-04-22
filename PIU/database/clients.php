@@ -14,7 +14,6 @@ function isLoginCorrect($username, $password) {
   $stmt->execute(array($username, sha1($password)));
   return $stmt->fetch();
 }
-
 function changeActiveStatus($iduser,$bool){
  global $conn;
  $stmt = $conn->prepare("UPDATE client
@@ -57,32 +56,31 @@ function change_email($new_email, $current_username){
 
 }
 
-function birthDate($new_date, $current_date){
+function birthDate($new_date, $current_username){
   global $conn; 
   
   $stmt = $conn->prepare(
     'UPDATE client SET birthDate = ? 
     WHERE username = ?');
-  $stmt->execute(array($new_date, $current_date));
+  $stmt->execute(array($new_date, $current_username));
 }
 
-function change_phone($new_phone,$current_phone){
-  global $conn;
-
-  $stmt = conn->prepare(
-    "UPDATE client SET phonenr = ?
-    WHERE username = ?");
-  $stmt->execute(array($new_phone,$current_phone));
-
+function change_phone($new_phone, $current_username){
+  global $conn; 
+  
+  $stmt = $conn->prepare(
+    'UPDATE client SET phonenr = ? 
+    WHERE username = ?');
+  $stmt->execute(array($new_phone, $current_username));
 }
 
-function change_address($new_address,$current_address){
+function change_address($new_address,$current_username){
   global $conn;
 
-  $stmt = conn->prepare(
-    "UPDATE client SET address = ?
-    WHERE username = ?");
-  $stmt->execute(array($new_address,$new_address));
+  $stmt = $conn->prepare(
+    'UPDATE client SET address = ?
+    WHERE username = ?');
+  $stmt->execute(array($new_address,$current_username));
 }
 
 ?>

@@ -65,8 +65,14 @@
 						<div class="mega-dropdown-menu">
 							<div class="w3ls_vegetables">
 								<ul class="dropdown-menu drp-mnu">
-									<li><a href="../actions/clients/logout.php">Logout</a></li>
-								</ul>
+									<li><a href="../actions/clients/logout.php">Logout</a></li>';
+                                    if(isset($_SESSION['admin'])){
+						                  if($_SESSION['admin']==true){
+							             echo '<li><a href="InsertProducts.php">Insert products as admin</a></li>';
+						                  }
+					                       }
+
+								echo'</ul>
 							</div>
 						</div>';
 					}
@@ -80,11 +86,7 @@
 						</div>';
 					}
 
-					if(isset($_SESSION['admin'])){
-						if($_SESSION['admin']==true){
-							echo '<li><a href="InsertProducts.php">Insert products as admin</a></li>';
-						}
-					}
+					
 					?>
 				</li>
 			</ul>
