@@ -11,10 +11,34 @@
 					  </div>
 					  <div class="form">
 						<h2>Create your product</h2>
-						<form action="../actions/products/Insert.php" method="post">
+						<form action="../actions/products/Insert.php" method="post" enctype="multipart/form-data">
 						  <input type="text" name="Name" placeholder="Product name" required=" ">
+                            
+                          <input type="file" name="fileToUpload" id="fileToUpload">
+                            
+                            <?php include('../database/category.php');
+                            <?php include('../database/brand.php');
+                             echo'<select name="category">'
+                            $arr=GetAllCategorys();
+                            foreach($arr as $value){
+                            echo '<option value='.$value['idcategory'].'>'.$values['name'].'</option>';
+}
+                            echo '</select name="brand">';
+                            echo'<select>';
+                            $arr=GetAllBrands();
+                            foreach($arr as $value){
+                            echo '<option value='.$value['idbrand'].'>'.$values['name'].'</option>';
+}
+                            echo'</select>';
+?>
+                         
+                          <input type="range" name="stock" min="0" max="100">
+                          <input type="number" name="price" min="0">
+                          <input type="number" name="weight">
+                        <input type="number" name="weight">
+                          <input type="text" name="description" placeholder="Write a description" required="">
 						  <input type="password" name="Password" placeholder="Password" required=" ">
-						  <input type="submit" value="Login">
+						  <input type="submit" value="Create">
 						</form>
 					  </div>
                     </div>
