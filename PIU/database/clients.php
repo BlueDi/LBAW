@@ -3,24 +3,47 @@
 function createClient($realname, $username, $password,$email,$birthdate,$address,$nif,$admin,$phonenr) {
   global $conn;
   $stmt = $conn->prepare("INSERT INTO client VALUES (DEFAULT, ?, ?,?,?,?,?,?,?,?,?)");
-  $stmt->execute(array($realname, sha1($password),$email,$birthdate,$address,$nif,true,$admin,$phonenr,$username));
+  $stmt->execute(array($realname, sha1($password),$email,$birthdate,$address,$nif,true,false,$phonenr,$username));
 }
 
 function isLoginCorrect($username, $password) {
   global $conn;
   $stmt = $conn->prepare("SELECT *
     FROM client
-    WHERE username = ? AND password = ?");
+    WHERE username = ? AND password = ? AND active=true");
   $stmt->execute(array($username, sha1($password)));
   return $stmt->fetch();
+}
+
+function getAllClients(){
+    global $conn;
+    $stmt = $conn->prepare("SELECT *
+    FROM client");
+    $stmt->execute();
+    return $stmt->fetchAll();
+    
+}
+function getById($iduser){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM client WHERE iduser=?");
+    $stmt->execute(array($iduser));
+    return $stmt->fetch();
+    
+}
+function promoteAdmin($iduser,$bool){
+ global $conn;
+ $stmt = $conn->prepare("UPDATE client
+  SET admin = ?
+  WHERE iduser = ?");
+ $stmt->execute(array($bool, $iduser));
 }
 
 function changeActiveStatus($iduser,$bool){
  global $conn;
  $stmt = $conn->prepare("UPDATE client
   SET active = ?
-  WHERE iduser = ? ");
- $stmt->execute(array($bool, iduser));
+  WHERE iduser = ?");
+ $stmt->execute(array($bool, $iduser));
 }
 
 function change_username($new_username, $current_username) {
@@ -37,9 +60,9 @@ function change_username($new_username, $current_username) {
 }
 
 function get_email($id_client){
-  global $conn;
+  global $coon;
 
-  $stmt = $conn->prepare(
+  $stmt = $coon->prepare(
     "SELECT email FROM client WHERE
     idUser = ?");
   $stmt->execute(array($id_client));
@@ -54,6 +77,7 @@ function change_email($new_email, $current_username){
     'UPDATE client SET email = ? 
     WHERE username = ?');
   $stmt->execute(array($new_email, $current_username));
+
 }
 
 function birthDate($new_date, $current_username){
