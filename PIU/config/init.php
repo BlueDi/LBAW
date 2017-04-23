@@ -3,7 +3,7 @@
   session_start();
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
-
+  $BASE_PIU = '/~lbaw1621/PIU/';
   $BASE_DIR = '/opt/lbaw/lbaw1621/public_html/PIU/';
   $BASE_URL = '/~lbaw1621/PIU/pages/index.php';
 
