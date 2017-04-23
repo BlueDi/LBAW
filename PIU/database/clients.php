@@ -3,7 +3,7 @@
 function createClient($realname, $username, $password,$email,$birthdate,$address,$nif,$admin,$phonenr) {
   global $conn;
   $stmt = $conn->prepare("INSERT INTO client VALUES (DEFAULT, ?, ?,?,?,?,?,?,?,?,?)");
-  $stmt->execute(array($realname, sha1($password),$email,$birthdate,$address,$nif,true,false,$phonenr,$username));
+  $stmt->execute(array($realname, sha1($password),$email,$birthdate,$address,$nif,true,'false',$phonenr,$username));
 }
 
 function isLoginCorrect($username, $password) {
