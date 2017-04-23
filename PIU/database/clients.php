@@ -46,18 +46,26 @@ function changeActiveStatus($iduser,$bool){
  $stmt->execute(array($bool, $iduser));
 }
 
-function change_username($new_username, $current_username) {
+function change_username($new_username, $current_id) {
   global $conn; 
 
   $stmt = $conn->prepare(
-    'SELECT * FROM client
-    WHERE username = ?');
-  $stmt->execute(array($new_username));
-
-  $stmt = $conn->prepare('UPDATE client SET username = ? WHERE username = ?');
-  $stmt->execute(array($new_username, $current_username));
+    'UPDATE client SET username = ?
+    WHERE iduser = ?');
+  $stmt->execute(array($new_username, $current_id));
 
 }
+
+function change_password($new_password, $current_id) {
+  global $conn; 
+
+  $stmt = $conn->prepare(
+    'UPDATE client SET password = ?
+    WHERE iduser = ?');
+  $stmt->execute(array(sha1($new_password), $current_id));
+
+}
+
 
 function get_email($id_client){
   global $coon;
@@ -70,41 +78,41 @@ function get_email($id_client){
 }
 
 //$Session_GET[login_username]
-function change_email($new_email, $current_username){
+function change_email($new_email, $current_id){
   global $conn; 
   
   $stmt = $conn->prepare(
     'UPDATE client SET email = ? 
-    WHERE username = ?');
-  $stmt->execute(array($new_email, $current_username));
+    WHERE iduser = ?');
+  $stmt->execute(array($new_email, $current_id));
 
 }
 
-function birthDate($new_date, $current_username){
+function change_birthDate($new_date, $current_id){
   global $conn; 
   
   $stmt = $conn->prepare(
     'UPDATE client SET birthDate = ? 
-    WHERE username = ?');
-  $stmt->execute(array($new_date, $current_username));
+    WHERE iduser= ?');
+  $stmt->execute(array($new_date, $current_id));
 }
 
-function change_phone($new_phone, $current_username){
+function change_phone($new_phone, $current_id){
   global $conn; 
   
   $stmt = $conn->prepare(
     'UPDATE client SET phonenr = ? 
-    WHERE username = ?');
-  $stmt->execute(array($new_phone, $current_username));
+    WHERE iduser = ?');
+  $stmt->execute(array($new_phone, $current_id));
 }
 
-function change_address($new_address,$current_username){
+function change_address($new_address,$current_id){
   global $conn;
 
   $stmt = $conn->prepare(
     'UPDATE client SET address = ?
-    WHERE username = ?');
-  $stmt->execute(array($new_address,$current_username));
+    WHERE iduser = ?');
+  $stmt->execute(array($new_address,$current_id));
 }
 
 ?>

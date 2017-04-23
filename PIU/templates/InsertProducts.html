@@ -17,8 +17,6 @@
                           <input type="file" name="fileToUpload" id="fileToUpload">
                             
                             <?php 
-                            include('../database/category.php');
-                            include('../database/brand.php');
                             echo'<select name="category">';
                             $arr=GetAllCategorys();
                             foreach($arr as $value){

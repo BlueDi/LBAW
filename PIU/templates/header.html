@@ -60,8 +60,13 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
 					<?php
 					include_once('../config/init.php');
-					if(isset($_SESSION['login_user'])) {
-						echo '<a href="profile.php">'.$_SESSION['login_user'].'</a>
+                    include('../database/clients.php');
+                    include('../database/category.php');
+                    include('../database/brand.php');
+
+                    $val=getById($_SESSION['iduser']);
+					if(isset($_SESSION['iduser'])) {
+						echo '<a href="profile.php">'.$val['username'].'</a>
 						<div class="mega-dropdown-menu">
 							<div class="w3ls_vegetables">
 								<ul class="dropdown-menu drp-mnu">
