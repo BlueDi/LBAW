@@ -11,21 +11,20 @@ if(isLoginCorrect($username,$password) == true) {
   
   $_SESSION['admin'] = isLoginCorrect($username,$password)['admin'];
   echo '
-    <script language="javascript">
-      alert("Correct username and/or password.")
+    <script>
+      alert("Correct username and/or password.");
     </script>
   ';
-  $redirectUrl = '../../pages/products.php';
-  echo '<script type="application/javascript">window.location.href = "'.$redirectUrl.'";</script>';
-  
+  $redirectUrl = $BASE_PIU.'pages/products.php';
+  echo '<script> window.location.href = "'.$redirectUrl.'"; </script>';
 } else {
   echo '
-    <script language="javascript">
+    <script>
       alert("inCorrect username and/or password.");
     </script>
   ';
-  $redirectUrl = '../../pages/login.php';
-  echo '<script type="application/javascript">window.location.href = "'.$redirectUrl.'";</script>';
+  $redirectUrl = $BASE_PIU.'pages/login.php';
+  echo '<script> window.location.href = "'.$redirectUrl.'"; </script>';
 }
 
 
