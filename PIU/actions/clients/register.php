@@ -5,7 +5,7 @@
   if (!$_POST['Username'] || !$_POST['Realname'] || !$_POST['Password'] || !$_POST['Email'] || !$_POST['Address'] ||!$_POST['bdate']) {
     $_SESSION['error_messages'][] = 'All fields are mandatory';
     $_SESSION['form_values'] = $_POST;
-    header("Location: " .'/~lbaw1621/PIU/pages/login.php');
+    header("Location: ".'/~lbaw1621/PIU/pages/login.php');
     exit;
   }
 
@@ -30,11 +30,13 @@
       $_SESSION['field_errors']['username'] = 'Username already exists';
     }
     else $_SESSION['error_messages'][] = 'Error creating user';
-      echo'<script language="javascript">';
-      echo 'alert("Username already exists.")';
-      echo '</script>';
+    echo'
+      <script language="javascript">
+      alert("Username already exists.")
+      </script>
+    ';
     $_SESSION['form_values'] = $_POST;
-    header("Location: " .'/~lbaw1621/PIU/pages/login.php');
+    header("Location: ".'/~lbaw1621/PIU/pages/login.php');
     exit;
   }
   $_SESSION['success_messages'][] = 'User registered successfully';  

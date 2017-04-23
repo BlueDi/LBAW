@@ -14,6 +14,7 @@ function isLoginCorrect($username, $password) {
   $stmt->execute(array($username, sha1($password)));
   return $stmt->fetch();
 }
+
 function changeActiveStatus($iduser,$bool){
  global $conn;
  $stmt = $conn->prepare("UPDATE client
@@ -36,9 +37,9 @@ function change_username($new_username, $current_username) {
 }
 
 function get_email($id_client){
-  global $coon;
+  global $conn;
 
-  $stmt = $coon->prepare(
+  $stmt = $conn->prepare(
     "SELECT email FROM client WHERE
     idUser = ?");
   $stmt->execute(array($id_client));
@@ -53,7 +54,6 @@ function change_email($new_email, $current_username){
     'UPDATE client SET email = ? 
     WHERE username = ?');
   $stmt->execute(array($new_email, $current_username));
-
 }
 
 function birthDate($new_date, $current_username){
