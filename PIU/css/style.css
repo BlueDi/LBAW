@@ -314,11 +314,13 @@ ul.dropdown-menu.drp-mnu li a i {
   height: 97px;
 }
 .profile_details_drop a {
-  display: block;
-  padding-top:1em;
+  display: inline;
+  /*padding-top:1em;*/
   font-size:1em;
   color:#fff;
 }
+
+
 .w3ls_logo_products_left h1 a span {
   font-size: .3em;
   display: block;
@@ -4413,4 +4415,30 @@ ul.wmuSliderPagination {
     background: url(../images/cart.png) no-repeat 105px 5px;
     font-size: 13px;
   }
+}
+
+.container-nav{
+  padding-left: 10px;
+}
+
+/*-- PROFILE EDIT --*/
+
+.user_form form{
+  position: relative;
+  top: -155px;
+  padding-left: 300px;
+  width: 500px;
+  clear: both;
+}
+
+.user_form .submit-button {
+  float: left;
+  top: 10px;
+  position: relative;
+  left: -1px;
+}
+
+.edit_note{
+  display: block;
+  text-align: center;
 }

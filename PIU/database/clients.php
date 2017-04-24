@@ -115,4 +115,44 @@ function change_address($new_address,$current_id){
   $stmt->execute(array($new_address,$current_id));
 }
 
+function SeeIfexistsEmail($email){
+    global $conn;
+    $stmt = $conn->prepare(
+    'SELECT * FROM client
+    WHERE email = ?');
+    $stmt->execute(array($email));
+    return $stmt->fetch(); 
+}
+
+
+function gerarSenha($tamanho=9, $forca=8) {
+	$vogais = 'aeiou';
+	$consoantes = 'bdghjkmnpqrstvwxyz';
+	if ($forca >= 1) {
+		$consoantes .= 'BDGHJKLMNPQRSTVWXYZ';
+	}
+	if ($forca >= 2) {
+		$vogais .= "AEIOU";
+	}
+	if ($forca >= 4) {
+		$consoantes .= '123456789';
+	}
+	if ($forca >= 8 ) {
+		$vogais .= '@#$%';
+	}
+ 
+	$senha = '';
+	$alt = time() % 2;
+	for ($i = 0; $i < $tamanho; $i++) {
+		if ($alt == 1) {
+			$senha .= $consoantes[(rand() % strlen($consoantes))];
+			$alt = 0;
+		} else {
+			$senha .= $vogais[(rand() % strlen($vogais))];
+			$alt = 1;
+		}
+	}
+	return $senha;
+}
+
 ?>

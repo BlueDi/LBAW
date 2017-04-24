@@ -2117,6 +2117,9 @@ pre code {
     width: 33.33333333%;
   }
   .col-lg-3 {
+    position: relative;
+    /*left: 155px;*/
+    top:50px;
     width: 25%;
   }
   .col-lg-2 {
@@ -3424,6 +3427,7 @@ tbody.collapse.in {
 .dropup,
 .dropdown {
   position: relative;
+  padding-top: 12px;
 }
 .dropdown-toggle:focus {
   outline: 0;
