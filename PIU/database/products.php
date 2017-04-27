@@ -11,6 +11,10 @@ global $conn;
 }
 
 
-
+function selectProductByCategory($idcategory,$number){
+    global $conn;
+     $stmt = $conn->prepare("SELECT * FROM product WHERE idcategory=? LIMIT ?");
+     $stmt->execute(array($idcategory,$number));
+}
 
      ?>
