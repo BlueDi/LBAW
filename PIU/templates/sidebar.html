@@ -12,7 +12,18 @@
      <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
       <ul class="nav navbar-nav nav_1">
-        <li><a href="products.php">Promotions</a></li>
+          <?php
+$arr=GetFirstXCategorys(6);
+
+foreach($arr as $val){
+echo'<li><a href="category.php?id="'.$val['idcategory'].'">'.$val['name'].'</a></li>';
+
+}
+
+
+
+?>
+        <!--<li><a href="products.php">Promotions</a></li>
         <li><a href="new.php">New products</a></li>
         <li class="dropdown mega-dropdown active">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Living room storage<span class="caret"></span></a>
@@ -38,7 +49,7 @@
             </div>
           </div>
         </li>
-        <li><a href="bancos.php">Stools</a></li>
+        <li><a href="bancos.php">Stools</a></li> -->
       </ul>
      </div><!-- /.navbar-collapse -->
   </nav>

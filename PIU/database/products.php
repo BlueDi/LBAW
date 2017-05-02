@@ -20,7 +20,7 @@ function selectProductByCategory($idcategory,$number){
 
 function selectNewProducts($number){
     global $conn;
-     $stmt = $conn->prepare("SELECT * FROM product JOIN category ON product.idcategory=category.idcategory AND category.name='NEW' LIMIT ?");
+     $stmt = $conn->prepare("SELECT product.idproduct,product.name,product.idimage,product.price,product.stock FROM product JOIN category ON product.idcategory=category.idcategory AND category.name='NEW' LIMIT ?");
      $stmt->execute(array($number));
      return $stmt->fetchAll();
 }

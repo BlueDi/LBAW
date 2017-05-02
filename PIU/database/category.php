@@ -19,5 +19,17 @@ function GetAllCategorys(){
     $stmt->execute();
     return $stmt->fetchAll();
 }
-                   
+function GetFirstXCategorys($number){
+    global $conn;
+    $stmt = $conn->prepare('SELECT * FROM category ORDER by idcategory ASC LIMIT ?');
+    $stmt->execute(array($number));
+    return $stmt->fetchAll();
+}
+
+function GetCategoryById($id){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM category WHERE idcategory=?");
+    $stmt->execute(array($id));
+    return $stmt->fetch();
+}
 ?>
