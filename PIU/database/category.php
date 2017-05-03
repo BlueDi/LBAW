@@ -32,4 +32,11 @@ function GetCategoryById($id){
     $stmt->execute(array($id));
     return $stmt->fetch();
 }
+function GetCategoryPromo($id,$curr_date){
+     global $conn;
+    $stmt = $conn->prepare('select * from category where idcategory=? and startdate <= ? and enddate >= ?');
+    $stmt->execute(array($id,$curr_date,$curr_date));
+    return $stmt->fetch();
+    
+}
 ?>

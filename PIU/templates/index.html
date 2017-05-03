@@ -89,22 +89,37 @@
 			<div class="agile_top_brands_grids">
                 
 <?php 
+
+date_default_timezone_set('Europe/Lisbon');
+            $date = date('Y-m-d', time());
+
+            
         
 $arr=selectNewProducts(4);
     foreach($arr as $val){
+
+if(GetCategoryPromo($val['idcategory'],$date)==true){
+            $promo=GetCategoryPromo($val['idcategory'],$date)['promopercentage'];
+            $ispromo=true;
+}
          $indiv=getImageUrlFromProduct($val['idproduct']);
 			echo'<div class="col-md-3 top_brand_left">
 					<div class="hover14 column">
 						<div class="agile_top_brand_left_grid">
-							<div class="tag"><img src="../images/tag.png" alt=" " class="img-responsive" /></div>
 							<div class="agile_top_brand_left_grid1">
 								<figure>
 									<div class="snipcart-item block" >
 										<div class="snipcart-thumb">
 											<a href="single.php"><img title=" " alt=" " src="../images/'.$indiv['url'].'" /></a>
-											<p>'.$val['name'].'</p>
-											<h4>$'.$val['price'].'<span>$10.00</span></h4>
-										</div>
+											<p>'.$val['name'].'</p>';
+										  if($ispromo==true){
+                                            echo'<h4>$'.($val['price']*$promo/100).' <span>$'.$val['price'].'</span></h4>';
+}
+                                else{
+                                 echo'<h4>$'.$val['price'].'</h4>';
+
+}
+										echo'</div>
 										<div class="snipcart-details top_brand_home_details">
 											<form action="#" method="post">
 												<fieldset>
@@ -124,6 +139,7 @@ $arr=selectNewProducts(4);
 									</div>
 								</figure>
 							</div>
+                            <div class="tag"><img src="../images/tag.png" alt=" " class="img-responsive" /></div>
 						</div>
 					</div>
 				</div>';
