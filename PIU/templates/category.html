@@ -35,7 +35,11 @@
 }
 
             foreach($arr as $val){
+
 $pricePromo=$val['price']-($val['price']*$promo/100);
+
+//join que vai buscar o url da imagem a partir do idimage
+ $indiv=getImageUrlFromProduct($val['idproduct']);
           echo'<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
@@ -46,7 +50,7 @@ $pricePromo=$val['price']-($val['price']*$promo/100);
 								<figure>
 									<div class="snipcart-item block">
 										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/14.png" alt=" " class="img-responsive" /></a>
+											<a href="single.php?id='.$val['idproduct'].'"><img src="../images/'.$indiv['url'].'" alt=" " class="img-responsive" /></a>
 											<p>'.$val['name'].'</p>';
                                             if($ispromo==true){
                                             echo'<h4>$'.$pricePromo.' <span>$'.$val['price'].'</span></h4>';
