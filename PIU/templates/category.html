@@ -35,6 +35,7 @@
 }
 
             foreach($arr as $val){
+$pricePromo=$val['price']-($val['price']*$promo/100);
           echo'<div class="col-md-3 w3ls_w3l_banner_left">
 						<div class="hover14 column">
 						<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
@@ -48,7 +49,7 @@
 											<a href="single.php"><img src="../images/14.png" alt=" " class="img-responsive" /></a>
 											<p>'.$val['name'].'</p>';
                                             if($ispromo==true){
-                                            echo'<h4>$'.($val['price']*$promo/100).' <span>$'.$val['price'].'</span></h4>';
+                                            echo'<h4>$'.$pricePromo.' <span>$'.$val['price'].'</span></h4>';
 }
                                 else{
                                  echo'<h4>$'.$val['price'].'</h4>';
@@ -63,9 +64,15 @@
 													<input type="hidden" name="add" value="1" />
 													<input type="hidden" name="business" value=" " />
 													<input type="hidden" name="item_name" value="'.$val['name'].'" />
-													<input type="hidden" name="amount" value="'.$val['price'].'" />
-													<input type="hidden" name="discount_amount" value="1.00" />
-													<input type="hidden" name="currency_code" value="USD" />
+													<input type="hidden" name="amount" value="'.$val['price'].'" />';
+                                                    if($ispromo==true){
+													echo'<input type="hidden" name="discount_amount" value="'.($val['price']*$promo/100).'" />';
+                                                        }
+                                                else{
+                                                    echo'<input type="hidden" name="discount_amount" value="0" />';
+
+}
+												echo'	<input type="hidden" name="currency_code" value="USD" />
 													<input type="hidden" name="return" value=" " />
 													<input type="hidden" name="cancel_return" value=" " />
 													<input type="submit" name="submit" value="Add to cart" class="button" />
