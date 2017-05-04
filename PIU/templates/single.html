@@ -16,7 +16,13 @@
 			<h3>Best Deals For New Products<span class="blink_me"></span></h3>
 		</div>
 		<div class="agileinfo_single">
-			<h5>EKTORP (sofá)</h5>
+            <?php 
+
+            $idproduct=$_GET['id'];
+            $val=getProductById($idproduct);
+echo'<h5>'.$val['name'].'</h5>';
+?>
+			
 			<div class="col-md-4 agileinfo_single_left">
 				<img id="example" src="../images/1.png" alt=" " class="img-responsive" />
 			</div>
@@ -47,12 +53,33 @@
                     <h4>Comment section</h4>
                     <textarea rows="4" cols="50">
 
-</textarea>
+</textarea> 
+                    <!-- post will save the review with the rating not yet sure how but will-->
+                    <form action="../actions/products/SubmitReview.php" method="post">
                     <input type="submit" name="remove" value="Submit" class="button" />
+                    </form>
                 </div>
 				<div class="snipcart-item block">
 					<div class="snipcart-thumb agileinfo_single_right_snipcart">
-						<h4>399€ <span>499€</span></h4>
+                        <?php 
+          
+
+            date_default_timezone_set('Europe/Lisbon');
+            $date = date('Y-m-d', time());
+
+            if(GetCategoryPromo($val['idcategory'],$date)==true){
+            $promo=GetCategoryPromo($val['idcategory'],$date)['promopercentage'];
+            $ispromo=true;
+}
+  $pricePromo=$val['price']-($val['price']*$promo/100);
+if($ispromo==true){
+echo'<h4>'.$pricePromo.'€ <span>'.$val['price'].'€</span></h4>';
+}
+else{
+echo'<h4>'.$val['price'].'€</h4>';
+}
+?>
+						
 					</div>
 					<div class="snipcart-details agileinfo_single_right_details">
 						<form action="#" method="post">

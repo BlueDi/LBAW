@@ -38,5 +38,10 @@ function getImageUrlFromProduct($id)
      $stmt->execute(array($id));
      return $stmt->fetch();
 }
-
+function getProductById($id){
+    global $conn;
+     $stmt = $conn->prepare("SELECT * FROM product WHERE idproduct= ?");
+     $stmt->execute(array($id));
+     return $stmt->fetch();
+}
 ?>
