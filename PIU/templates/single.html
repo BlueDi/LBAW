@@ -20,11 +20,19 @@
 
             $idproduct=$_GET['id'];
             $val=getProductById($idproduct);
+$indiv=getImageUrlFromProduct($val['idproduct']);
 echo'<h5>'.$val['name'].'</h5>';
+
 ?>
 			
 			<div class="col-md-4 agileinfo_single_left">
-				<img id="example" src="../images/1.png" alt=" " class="img-responsive" />
+                <?php echo'<img id="example" src="../images/'.$indiv['url'].'" alt=" " class="img-responsive" />';
+echo'<p>'.$val['weight'].'kg</p>
+<p>'.$val['width'].'x'.$val['height'].'(width x height)</p>
+<p>Existant Stock:'.$val['stock'].'</p>';
+
+?>
+				
 			</div>
 			<div class="col-md-8 agileinfo_single_right">
 				<div class="rating1">
@@ -43,11 +51,16 @@ echo'<h5>'.$val['name'].'</h5>';
 				</div>
 				<div class="w3agile_description">
 					<h4>Description :</h4>
+                    <?php 
+echo'<p>'.$val['description'].'</p>';
+
+?>
+                    <!--
 					<p>As almofadas de assento com enchimento em espuma de grande elasticidade e forro em fibra de poliéster proporcionam apoio para o corpo ao sentar e voltam à sua forma original ao levantar-se.</p>
 					<p>Almofadas de encosto reversíveis com fibras de poliéster, proporcionam um apoio suave para as costas e dois lados diferentes para variar.</p>
 					<p>Como é amovível e lavável na máquina, a capa é fácil de manter limpa.</p>
 					<p>Uma gama de capas coordenadas permite-lhe dar um novo aspeto aos seus móveis.</p>
-					<p>Inclui 10 anos de garantia. Saiba mais sobre as condições da garantia no respetivo folheto.</p>
+					<p>Inclui 10 anos de garantia. Saiba mais sobre as condições da garantia no respetivo folheto.</p>-->
 				</div>
                 <div class="comments">
                     <h4>Comment section</h4>
@@ -73,7 +86,7 @@ echo'<h5>'.$val['name'].'</h5>';
 }
   $pricePromo=$val['price']-($val['price']*$promo/100);
 if($ispromo==true){
-echo'<h4>'.$pricePromo.'€ <span>'.$val['price'].'€</span></h4>';
+echo'<h4>'.$pricePromo.'€<span>'.$val['price'].'€</span></h4>';
 }
 else{
 echo'<h4>'.$val['price'].'€</h4>';
@@ -87,10 +100,21 @@ echo'<h4>'.$val['price'].'€</h4>';
 								<input type="hidden" name="cmd" value="_cart" />
 								<input type="hidden" name="add" value="1" />
 								<input type="hidden" name="business" value=" " />
-								<input type="hidden" name="item_name" value="EKTORP_sofa" />
-								<input type="hidden" name="amount" value="499.00" />
-								<input type="hidden" name="discount_amount" value="100.00" />
-								<input type="hidden" name="currency_code" value="USD" />
+                                <?php 
+							echo'<input type="hidden" name="item_name" value="'.$val['name'].'" />
+								<input type="hidden" name="amount" value="'.$val['price'].'" />';
+                                
+if($ispromo==true){
+echo'<input type="hidden" name="discount_amount" value="'.($val['price']*$promo/100).'" />';
+}
+else{
+echo'<input type="hidden" name="discount_amount" value="0" />';
+}
+
+
+?>
+								
+								<input type="hidden" name="currency_code" value="EUR" />
 								<input type="hidden" name="return" value=" " />
 								<input type="hidden" name="cancel_return" value=" " />
 								<input type="submit" name="submit" value="Add to cart" class="button" />
@@ -108,10 +132,24 @@ echo'<h4>'.$val['price'].'€</h4>';
 <!-- brands -->
 <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_popular">
 	<div class="container">
-		<h3>Modelos populares</h3>
+		<h3>Products in the same category</h3>
 		<div class="w3ls_w3l_banner_nav_right_grid1">
-			<h6>poltronas</h6>
-			<div class="col-md-3 w3ls_w3l_banner_left">
+			
+            
+<?php 
+
+$arr=selectProductByCategory($val['idcategory'],4);
+
+foreach($arr as $productfromcat){
+
+if($idproduct==$productfromcat['idproduct']){
+
+}
+else{
+$indiv=getImageUrlFromProduct($productfromcat['idproduct']);
+
+$pricePromo=$productfromcat['price']-($productfromcat['price']*$promo/100);
+		echo'<div class="col-md-3 w3ls_w3l_banner_left">
 				<div class="hover14 column">
 					<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
 						<div class="agile_top_brand_left_grid_pos">
@@ -121,24 +159,37 @@ echo'<h4>'.$val['price'].'€</h4>';
 							<figure>
 								<div class="snipcart-item block">
 									<div class="snipcart-thumb">
-										<a href="single.php"><img src="../images/5.png" alt=" " class="img-responsive" /></a>
-										<p>EKTORP (poltrona)</p>
-										<h4>259€</h4>
-									</div>
-									<div class="snipcart-details">
-										<form action="#" method="post">
-											<fieldset>
-												<input type="hidden" name="cmd" value="_cart" />
-												<input type="hidden" name="add" value="1" />
-												<input type="hidden" name="business" value=" " />
-												<input type="hidden" name="item_name" value="EKTORP_poltrona" />
-												<input type="hidden" name="amount" value="259.00" />
-												<input type="hidden" name="discount_amount" value="0.00" />
-												<input type="hidden" name="currency_code" value="USD" />
-												<input type="hidden" name="return" value=" " />
-												<input type="hidden" name="cancel_return" value=" " />
-												<input type="submit" name="submit" value="Add to cart" class="button" />
-											</fieldset>
+										<a href="single.php?id='.$val['idproduct'].'"><img src="../images/'.$indiv['url'].'" alt=" " class="img-responsive" /></a>
+											<p>'.$productfromcat['name'].'</p>';
+                                            if($ispromo==true){
+                                            echo'<h4>'.$pricePromo.'€<span>'.$productfromcat['price'].'€</span></h4>';
+}
+                                else{
+                                 echo'<h4>$'.$val['price'].'€</h4>';
+
+}
+											
+										echo'</div>
+										<div class="snipcart-details">
+											<form action="#" method="post">
+												<fieldset>
+													<input type="hidden" name="cmd" value="_cart" />
+													<input type="hidden" name="add" value="1" />
+													<input type="hidden" name="business" value=" " />
+													<input type="hidden" name="item_name" value="'.$productfromcat['name'].'" />
+													<input type="hidden" name="amount" value="'.$productfromcat['price'].'" />';
+                                                    if($ispromo==true){
+													echo'<input type="hidden" name="discount_amount" value="'.($productfromcat['price']*$promo/100).'" />';
+                                                        }
+                                                else{
+                                                    echo'<input type="hidden" name="discount_amount" value="0" />';
+
+}
+												echo'	<input type="hidden" name="currency_code" value="EUR" />
+													<input type="hidden" name="return" value=" " />
+													<input type="hidden" name="cancel_return" value=" " />
+													<input type="submit" name="submit" value="Add to cart" class="button" />
+												</fieldset>
 										</form>
 									</div>
 								</div>
@@ -146,8 +197,12 @@ echo'<h4>'.$val['price'].'€</h4>';
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-3 w3ls_w3l_banner_left">
+			</div>';
+}
+
+}
+?>
+		<!--	<div class="col-md-3 w3ls_w3l_banner_left">
 				<div class="hover14 column">
 					<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
 						<div class="agile_top_brand_left_grid_pos">
@@ -546,7 +601,7 @@ echo'<h4>'.$val['price'].'€</h4>';
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
 			<div class="clearfix"> </div>
 		</div>
 	</div>
