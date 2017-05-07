@@ -631,7 +631,7 @@ ul.dropdown-menu.drp-mnu li a i {
 /*-- //banner --*/
 /*-- banner_bottom --*/
 .banner_bottom, .top-brands, .fresh-vegetables, .w3l_banner_nav_right_banner3_btm, .testimonials, .team, .newsletter-top-serv-btm, .w3ls_w3l_banner_nav_right_grid_sub {
-    padding: 5em 0 !important;
+    padding: 5em 0;
 }
 
 .wthree_banner_bottom_left {
@@ -762,6 +762,8 @@ h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 
 .agile_top_brand_left_grid1 img {
     margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .agile_top_brands_grids {
@@ -1789,13 +1791,13 @@ section#tables p {
 }
 
 .table td, .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
-    padding: 15px !important;
+    padding: 15px;
 }
 
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     font-size: 0.9em;
     color: #999;
-    border-top: none !important;
+    border-top: none;
 }
 
 .tab-content > .active {
@@ -1981,7 +1983,7 @@ h2.typoh2 {
 }
 
 .w3l_banner_nav_right_banner_pet {
-    padding: 4.5em 0 0 4em !important;
+    padding: 4.5em 0 0 4em;
 }
 
 .w3l_banner_nav_right_banner_pet p {
@@ -2611,7 +2613,7 @@ ul.wmuSliderPagination {
 .agileinfo_mail_grid_right textarea {
     min-height: 200px;
     margin: 1em 1.1em;
-    width: 95.9% !important;
+    width: 95.9%;
 }
 
 .agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
@@ -2702,8 +2704,8 @@ ul.wmuSliderPagination {
 }
 
 .agileinfo_single_right_details {
-    margin: 0 !important;
-    width: 25% !important;
+    margin: 0;
+    width: 25%;
 }
 
 .w3agile_description h4 {
@@ -2726,7 +2728,7 @@ ul.wmuSliderPagination {
 
 .w3ls_w3l_banner_nav_right_grid_popular {
     background: #f5f5f5;
-    padding: 5em 0 !important;
+    padding: 5em 0;
 }
 
 /*-- //single --*/
@@ -2800,7 +2802,7 @@ ul.wmuSliderPagination {
     line-height: 1;
     text-transform: uppercase;
     opacity: 1;
-    font-family: 'Ubuntu', sans-serif !important;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .form-module .toggle .tooltip:before {
@@ -3049,7 +3051,7 @@ ul.wmuSliderPagination {
     }
 
     .agileinfo_single_right_details {
-        width: 33% !important;
+        width: 33%;
     }
 
     .snipcart-details {
@@ -3157,7 +3159,7 @@ ul.wmuSliderPagination {
     }
 
     .banner_bottom, .top-brands, .fresh-vegetables, .w3l_banner_nav_right_banner3_btm, .testimonials, .team, .newsletter-top-serv-btm, .w3ls_w3l_banner_nav_right_grid_sub {
-        padding: 4em 0 !important;
+        padding: 4em 0;
     }
 
     .agile_footer_grids_w3_footer {
@@ -3233,7 +3235,7 @@ ul.wmuSliderPagination {
     }
 
     .w3l_banner_nav_right_banner_pet {
-        padding: 3em 0 0 3em !important;
+        padding: 3em 0 0 3em;
     }
 
     .typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
@@ -3275,7 +3277,7 @@ ul.wmuSliderPagination {
     }
 
     .agileinfo_mail_grid_right textarea {
-        width: 93.5% !important;
+        width: 93.5%;
     }
 
     .agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
@@ -3487,7 +3489,7 @@ ul.wmuSliderPagination {
     }
 
     .agile_footer_grids_w3_footer {
-        margin: 0 !important;
+        margin: 0;
     }
 
     .agile_footer_grids {
@@ -3524,7 +3526,7 @@ ul.wmuSliderPagination {
     }
 
     .w3ls_w3l_banner_left_asd {
-        margin-bottom: 0 !important;
+        margin-bottom: 0;
     }
 
     .w3ls_w3l_banner_nav_right_grid_head_grid {
@@ -3681,7 +3683,7 @@ ul.wmuSliderPagination {
     }
 
     .agileinfo_mail_grid_right textarea {
-        width: 95.5% !important;
+        width: 95.5%;
     }
 
     .agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
@@ -3845,7 +3847,7 @@ ul.wmuSliderPagination {
     }
 
     .banner_bottom, .top-brands, .fresh-vegetables, .w3l_banner_nav_right_banner3_btm, .testimonials, .team, .newsletter-top-serv-btm, .w3ls_w3l_banner_nav_right_grid_sub {
-        padding: 3em 0 !important;
+        padding: 3em 0;
     }
 
     .agileinfo_single_left {
@@ -3867,7 +3869,7 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart {
-        left: 39% !important;
+        left: 39%;
     }
 
     .container {
@@ -3959,7 +3961,7 @@ ul.wmuSliderPagination {
     }
 
     .agileinfo_mail_grid_right textarea {
-        width: 94% !important;
+        width: 94%;
     }
 
     .agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
@@ -4056,11 +4058,11 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart {
-        top: 140px !important;
+        top: 140px;
     }
 
     #PPMiniCart form {
-        max-height: 185px !important;
+        max-height: 185px;
     }
 }
 
@@ -4088,17 +4090,17 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart {
-        left: 36% !important;
+        left: 36%;
     }
 
     #PPMiniCart form {
-        max-height: 165px !important;
+        max-height: 165px;
     }
 }
 
 @media (max-width: 640px) {
     #PPMiniCart form {
-        max-height: 400px !important;
+        max-height: 400px;
     }
 
     .fixed {
@@ -4151,8 +4153,8 @@ ul.wmuSliderPagination {
     }
 
     .w3ls_w3l_banner_nav_right_grid_sub {
-        padding-left: 1em !important;
-        padding-right: 1em !important;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     .w3l_banner_nav_right_banner7 {
@@ -4160,7 +4162,7 @@ ul.wmuSliderPagination {
     }
 
     .w3l_banner_nav_right_banner_pet {
-        padding: 2em 0 0 2em !important;
+        padding: 2em 0 0 2em;
     }
 
     .w3l_banner_nav_right_banner9 {
@@ -4206,7 +4208,7 @@ ul.wmuSliderPagination {
     }
 
     .agileinfo_mail_grid_right textarea {
-        width: 100% !important;
+        width: 100%;
         margin: 1em 0;
     }
 
@@ -4241,19 +4243,19 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart form {
-        width: 506px !important;
+        width: 506px;
     }
 
     #PPMiniCart {
-        left: 41% !important;
+        left: 41%;
     }
 
     #PPMiniCart ul {
-        width: 464px !important;
+        width: 464px;
     }
 
     #PPMiniCart form {
-        max-height: 210px !important;
+        max-height: 210px;
     }
 }
 
@@ -4287,13 +4289,13 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart form {
-        max-height: 100px !important;
+        max-height: 100px;
     }
 }
 
 @media (max-width: 480px) {
     #PPMiniCart form {
-        max-height: 350px !important;
+        max-height: 350px;
     }
 
     .w3l_search {
@@ -4336,7 +4338,7 @@ ul.wmuSliderPagination {
     }
 
     .table td, .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
-        padding: 10px !important;
+        padding: 10px;
     }
 
     .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
@@ -4373,7 +4375,7 @@ ul.wmuSliderPagination {
     }
 
     .banner_bottom, .top-brands, .fresh-vegetables, .w3l_banner_nav_right_banner3_btm, .testimonials, .team, .newsletter-top-serv-btm, .w3ls_w3l_banner_nav_right_grid_sub {
-        padding: 2em 0 !important;
+        padding: 2em 0;
     }
 
     .wthree_banner_bottom_left {
@@ -4446,7 +4448,7 @@ ul.wmuSliderPagination {
     }
 
     .agile_footer_grids_w3_footer:nth-child(1) {
-        margin-bottom: 2em !important;
+        margin-bottom: 2em;
     }
 
     .wthree_footer_copy {
@@ -4481,8 +4483,8 @@ ul.wmuSliderPagination {
     }
 
     .w3ls_w3l_banner_nav_right_grid_sub {
-        padding-left: 1em !important;
-        padding-right: 1em !important;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     .w3ls_w3l_banner_nav_right_grid1 {
@@ -4494,11 +4496,11 @@ ul.wmuSliderPagination {
     }
 
     .w3ls_w3l_banner_nav_right_grid1_veg {
-        margin: 0 !important;
+        margin: 0;
     }
 
     .w3ls_w3l_banner_nav_right_grid_veg {
-        padding: 0 1em !important;
+        padding: 0 1em;
     }
 
     .w3ls_w3l_banner_nav_right_grid_head h6 {
@@ -4522,7 +4524,7 @@ ul.wmuSliderPagination {
     }
 
     .w3l_fruit {
-        margin-bottom: 1.5em !important;
+        margin-bottom: 1.5em;
     }
 
     .agileinfo_single h5 {
@@ -4553,7 +4555,7 @@ ul.wmuSliderPagination {
     }
 
     .w3ls_w3l_banner_nav_right_grid_popular {
-        padding: 2em 0 !important;
+        padding: 2em 0;
     }
 
     .privacy1 h3 {
@@ -4650,15 +4652,15 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart form {
-        width: 400px !important;
+        width: 400px;
     }
 
     #PPMiniCart ul {
-        width: 358px !important;
+        width: 358px;
     }
 
     #PPMiniCart {
-        left: 51% !important;
+        left: 51%;
     }
 }
 
@@ -4779,7 +4781,7 @@ ul.wmuSliderPagination {
     }
 
     .agileinfo_single_right_details {
-        width: 45% !important;
+        width: 45%;
     }
 
     .privacy2-grid1 {
@@ -4849,15 +4851,15 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart form {
-        width: 360px !important;
+        width: 360px;
     }
 
     #PPMiniCart ul {
-        width: 318px !important;
+        width: 318px;
     }
 
     #PPMiniCart {
-        left: 55% !important;
+        left: 55%;
     }
 }
 
@@ -4913,7 +4915,7 @@ ul.wmuSliderPagination {
     }
 
     .table td, .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
-        padding: 3px !important;
+        padding: 3px;
     }
 
     .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
@@ -4921,7 +4923,7 @@ ul.wmuSliderPagination {
     }
 
     input.my-product-quantity {
-        width: 40px !important;
+        width: 40px;
     }
 
     table.table {
@@ -4937,23 +4939,23 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart form {
-        width: 300px !important;
-        padding: 10px 10px 40px !important;
+        width: 300px;
+        padding: 10px 10px 40px;
     }
 
     #PPMiniCart ul {
-        width: 278px !important;
+        width: 278px;
     }
 
     #PPMiniCart .minicart-remove {
-        width: 11px !important;
-        height: 11px !important;
+        width: 11px;
+        height: 11px;
         line-height: 0;
-        margin: 3px 0 0 !important;
+        margin: 3px 0 0;
     }
 
     #PPMiniCart {
-        left: 64% !important;
+        left: 64%;
     }
 
     #PPMiniCart .minicart-item a {
@@ -5153,7 +5155,7 @@ ul.wmuSliderPagination {
     }
 
     .agileinfo_single_right_details {
-        width: 55% !important;
+        width: 55%;
     }
 
     .w3agile_newsletter_left {
@@ -5277,7 +5279,7 @@ ul.wmuSliderPagination {
     }
 
     .w3l_banner_nav_right_banner_pet {
-        padding: 1em 0 0 1em !important;
+        padding: 1em 0 0 1em;
     }
 
     .w3l_banner_nav_right_banner9 h4 {
@@ -5370,20 +5372,20 @@ ul.wmuSliderPagination {
     }
 
     #PPMiniCart form {
-        width: 285px !important;
+        width: 285px;
     }
 
     #PPMiniCart ul {
-        width: 263px !important;
+        width: 263px;
     }
 
     #PPMiniCart {
-        left: 69% !important;
+        left: 69%;
     }
 
     #PPMiniCart .minicart-subtotal {
-        padding-left: 5px !important;
-        font-size: 13px !important;
+        padding-left: 5px;
+        font-size: 13px;
     }
 
     .snipcart-details input.button {
