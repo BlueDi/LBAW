@@ -17,12 +17,11 @@
         </div>
         <div class="agileinfo_single">
             <?php
-            $idproduct=$_GET['id'];
+            $idproduct = $_GET['id'];
             $val = getProductById($idproduct);
             $indiv = getImageUrlFromProduct($val['idproduct']);
             ?>
             <h5><?php echo $val['name']; ?></h5>
-
             <div class="col-md-4 agileinfo_single_left">
                 <img id="example" src="../images/<?php echo $indiv['url']; ?>" alt=" " class="img-responsive" />
                 <p><?php echo $val['weight']; ?>kg</p>
@@ -161,7 +160,7 @@
                                                 <input type="hidden" name="discount_amount" value="
                                                     <?php
                                                         if ($ispromo) {
-                                                            echo ($productfromcat['price'] * $promo/100);
+                                                            echo $productfromcat['price'] * $promo/100;
                                                         } else {
                                                             echo 0;
                                                         }
@@ -182,6 +181,7 @@
             </div>
                 <?php }?><!-- if close bracket -->
             <?php }?><!-- for each close bracket -->
+            <div class="clearfix"></div>
         </div>
     </div>
     <div class="clearfix"></div>
