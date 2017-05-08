@@ -1971,7 +1971,7 @@ h2.typoh2 {
 }
 
 .typo, .privacy, .faq, .services, .events, .mail, .agileinfo_single, .w3_login {
-    padding: 0 2em 3em 2em;
+    padding: 1em 2em 3em 2em;
 }
 
 /*--//Typography --*/
@@ -2833,7 +2833,7 @@ ul.wmuSliderPagination {
     line-height: 1;
 }
 
-.form-module input[type="text"], .form-module input[type="password"], .form-module input[type="email"], .form-module input[type="date"] {
+.form-module input[type="text"], .form-module input[type="password"], .form-module input[type="email"], .form-module input[type="date"], .form-module input[type="number"], .form-module input[type="file"], .form-module select {
     outline: none;
     display: block;
     width: 100%;
@@ -2847,7 +2847,7 @@ ul.wmuSliderPagination {
     font-size: 14px;
 }
 
-.form-module input[type="text"]:focus, .form-module input[type="password"]:focus, .form-module input[type="email"], .form-module input[type="date"]:focus {
+.form-module input[type="text"]:focus, .form-module input[type="password"]:focus, .form-module input[type="email"], .form-module input[type="date"]:focus, .form-module input[type="number"]:focus, .form-module input[type="file"]:focus, .form-module select:focus {
     border: 1px solid #A9A9A9;
     color: #333333;
 }
@@ -4309,7 +4309,7 @@ ul.wmuSliderPagination {
 
     .w3l_search input[type="submit"] {
         background: url(../images/img-sp.png) no-repeat 0 3px #ac8e56;
-        padding: 8px 0 9.9px;
+        padding: 8px 0 10px;
     }
 
     .w3l_search input[type="submit"]:hover {
