@@ -1,0 +1,25 @@
+<div class="banner">
+    <?php include("../templates/sidebar.html");?>
+    <div class="w3l_banner_nav_right">
+        <div class="w3_login">
+            <h3>Category creation</h3>
+            <div class="w3_login_module">
+                <div class="form-module">
+                    <div class="toggle" style="visibility: hidden"></div>
+                    <div class="form">
+                        <h2>Create your category</h2>
+                        <form action="../actions/products/NewCategory.php" method="post" enctype="multipart/form-data">
+                            <input type="text" name="category" placeholder="Category" required>
+                            <input type="number" name="promo_percentage" min="0" max="100" placeholder="Promotion">
+                            <?php $today_date = date("Y-m-d"); ?>
+                            <input type="date" name="start_date" min="<?php echo $today_date; ?>">
+                            <input type="date" name="end_date" min="<?php echo $today_date; ?>">
+                            <input type="submit" value="Create">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
