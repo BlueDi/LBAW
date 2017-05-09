@@ -1,41 +1,35 @@
 <!-- products-breadcrumb -->
 <div class="products-breadcrumb">
-	<div class="container">
-		<ul>
-			<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
-			<li>Single Page</li>
-		</ul>
-	</div>
+    <div class="container">
+        <ul>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a href="../pages/index.php">Home</a><span>|</span></li>
+            <li>Single Page</li>
+        </ul>
+    </div>
 </div>
 <!-- //products-breadcrumb -->
 <!-- banner -->
 <div class="banner">
-	<?php include("../templates/sidebar.html");?>
-	<div class="w3l_banner_nav_right">
-		<div class="w3l_banner_nav_right_banner3">
-			<h3>Best Deals For New Products<span class="blink_me"></span></h3>
-		</div>
-		<div class="agileinfo_single">
-            <?php 
-
-            $idproduct=$_GET['id'];
-            $val=getProductById($idproduct);
-            $indiv=getImageUrlFromProduct($val['idproduct']);
-            echo'<h5>'.$val['name'].'</h5>';
-
-?>
-			
-			<div class="col-md-4 agileinfo_single_left">
-                <?php echo'<img id="example" src="../images/'.$indiv['url'].'" alt=" " class="img-responsive" />';
-                        echo'<p>'.$val['weight'].'kg</p>
-                        <p>'.$val['width'].'x'.$val['height'].'(width x height)</p>
-                        <p>Existant Stock:'.$val['stock'].'</p>';
-
-?>
-				
-			</div>
-			<div class="col-md-8 agileinfo_single_right">
-				<div class="rating1">
+    <?php include("../templates/sidebar.html");?>
+    <div class="w3l_banner_nav_right">
+        <div class="w3l_banner_nav_right_banner3">
+            <h3>Best Deals For New Products<span class="blink_me"></span></h3>
+        </div>
+        <div class="agileinfo_single">
+            <?php
+            $idproduct = $_GET['id'];
+            $val = getProductById($idproduct);
+            $indiv = getImageUrlFromProduct($val['idproduct']);
+            ?>
+            <h5><?php echo $val['name']; ?></h5>
+            <div class="col-md-4 agileinfo_single_left">
+                <img id="example" src="../images/<?php echo $indiv['url']; ?>" alt=" " class="img-responsive" />
+                <p><?php echo $val['weight']; ?>kg</p>
+                <p><?php echo $val['width']; ?> x <?php echo $val['height']; ?> (width x height)</p>
+                <p>Available in Stock: <?php echo $val['stock']; ?></p>
+            </div>
+            <div class="col-md-8 agileinfo_single_right">
+                <div class="rating1">
 					<span class="starRating">
 						<input id="rating5" type="radio" name="rating" value="5">
 						<label for="rating5">5</label>
@@ -48,174 +42,148 @@
 						<input id="rating1" type="radio" name="rating" value="1">
 						<label for="rating1">1</label>
 					</span>
-				</div>
-                <div>
-                <form action="../actions/wishlist/add.php" method="post">
-                    <?php
-
-                    echo '<input type="hidden" name="Iduser" value="'.$_SESSION['iduser'].'">';
-                    echo '<input type="hidden" name="Idproduct" value="'.$idproduct.'">';
-                    ?>
-                   
-                    <input type="submit" name="add" value="Add to wishlist" class="button" />
-                    </form>
                 </div>
-				<div class="w3agile_description">
-					<h4>Description :</h4>
-                    <?php 
-echo'<p>'.$val['description'].'</p>';
-
-?>
-                    <!--
-					<p>As almofadas de assento com enchimento em espuma de grande elasticidade e forro em fibra de poliéster proporcionam apoio para o corpo ao sentar e voltam à sua forma original ao levantar-se.</p>
-					<p>Almofadas de encosto reversíveis com fibras de poliéster, proporcionam um apoio suave para as costas e dois lados diferentes para variar.</p>
-					<p>Como é amovível e lavável na máquina, a capa é fácil de manter limpa.</p>
-					<p>Uma gama de capas coordenadas permite-lhe dar um novo aspeto aos seus móveis.</p>
-					<p>Inclui 10 anos de garantia. Saiba mais sobre as condições da garantia no respetivo folheto.</p>-->
-				</div>
+                <div class="w3agile_description">
+                    <h4>Description: </h4>
+                    <p><?php echo $val['description']; ?></p>
+                </div>
                 <div class="comments">
                     <h4>Comment section</h4>
-                    <textarea rows="4" cols="50">
-
-</textarea> 
+                    <textarea form="comment_form" rows="4" cols="50"></textarea>
                     <!-- post will save the review with the rating not yet sure how but will-->
-                    <form action="../actions/products/SubmitReview.php" method="post">
-                    <input type="submit" name="remove" value="Submit" class="button" />
+                    <form id="comment_form" action="../actions/products/SubmitReview.php" method="post">
+                        <input type="submit" name="remove" value="Submit" class="button"/>
                     </form>
                 </div>
-				<div class="snipcart-item block">
-					<div class="snipcart-thumb agileinfo_single_right_snipcart">
-                        <?php 
-          
+                <div class="snipcart-item block">
+                    <div class="snipcart-thumb agileinfo_single_right_snipcart">
+                        <?php
+                        date_default_timezone_set('Europe/Lisbon');
+                        $date = date('Y-m-d', time());
 
-            date_default_timezone_set('Europe/Lisbon');
-            $date = date('Y-m-d', time());
+                        if(GetCategoryPromo($val['idcategory'],$date) == true){
+                            $promo=GetCategoryPromo($val['idcategory'],$date)['promopercentage'];
+                            $ispromo = true;
+                        }
+                        $pricePromo = $val['price'] - ($val['price'] * $promo/100);
+                        ?>
+                        <h4>
+                            <?php
+                                if($ispromo) {
+                                    echo $pricePromo.'€<span>'.$val['price'].'€</span>';
+                                } else {
+                                    echo $val['price'].'€';
+                                }
+                            ?>
+                        </h4>
+                    </div>
+                    <div class="snipcart-details agileinfo_single_right_details">
+                        <form action="#" method="post">
+                            <fieldset>
+                                <input type="hidden" name="cmd" value="_cart"/>
+                                <input type="hidden" name="add" value="1"/>
+                                <input type="hidden" name="business" value=" "/>
+                                <input type="hidden" name="item_name" value="<?php echo $val['name']; ?>"/>
+                                <input type="hidden" name="amount" value="<?php echo $val['price']; ?>"/>
+                                <?php
+                                    if($ispromo){
+                                        echo'
+                                            <input type="hidden" name="discount_amount" value="'.($val['price']*$promo/100).'"/>
+                                        ';
+                                    } else{
+                                        echo'
+                                            <input type="hidden" name="discount_amount" value="0"/>
+                                        ';
+                                    }
+                                ?>
 
-            if(GetCategoryPromo($val['idcategory'],$date)==true){
-            $promo=GetCategoryPromo($val['idcategory'],$date)['promopercentage'];
-            $ispromo=true;
-            }
-            $pricePromo=$val['price']-($val['price']*$promo/100);
-            if($ispromo==true){
-            echo'<h4>'.$pricePromo.'€<span>'.$val['price'].'€</span></h4>';
-            }
-        else{
-            echo'<h4>'.$val['price'].'€</h4>';
-            }
-?>
-						
-					</div>
-					<div class="snipcart-details agileinfo_single_right_details">
-						<form action="#" method="post">
-							<fieldset>
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="business" value=" " />
-                                <?php 
-							echo'<input type="hidden" name="item_name" value="'.$val['name'].'" />
-								<input type="hidden" name="amount" value="'.$val['price'].'" />';
-                                
-if($ispromo==true){
-echo'<input type="hidden" name="discount_amount" value="'.($val['price']*$promo/100).'" />';
-}
-else{
-echo'<input type="hidden" name="discount_amount" value="0" />';
-}
-
-
-?>
-								
-								<input type="hidden" name="currency_code" value="EUR" />
-								<input type="hidden" name="return" value=" " />
-								<input type="hidden" name="cancel_return" value=" " />
-								<input type="submit" name="submit" value="Add to cart" class="button" />
-							</fieldset>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-	<div class="clearfix"></div>
+                                <input type="hidden" name="currency_code" value="EUR"/>
+                                <input type="hidden" name="return" value=" "/>
+                                <input type="hidden" name="cancel_return" value=" "/>
+                                <input type="submit" name="submit" value="Add to cart" class="button"/>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
 </div>
 <!-- //banner -->
 <!-- brands -->
 <div class="w3ls_w3l_banner_nav_right_grid w3ls_w3l_banner_nav_right_grid_popular">
-	<div class="container">
-		<h3>Products in the same category</h3>
-		<div class="w3ls_w3l_banner_nav_right_grid1">
-			
-            
-<?php 
+    <div class="container">
+        <h3>Products in the same category</h3>
+        <div class="w3ls_w3l_banner_nav_right_grid1">
+        <?php
+            $arr = selectProductByCategory($val['idcategory'], 8);
 
-$arr=selectProductByCategory($val['idcategory'],4);
+            foreach($arr as &$productfromcat){
+                $id_product_from_cat = $productfromcat['idproduct'];
 
-foreach($arr as $productfromcat){
-
-if($idproduct==$productfromcat['idproduct']){
-
-}
-else{
-$indiv=getImageUrlFromProduct($productfromcat['idproduct']);
-
-$pricePromo=$productfromcat['price']-($productfromcat['price']*$promo/100);
-		echo'<div class="col-md-3 w3ls_w3l_banner_left">
-				<div class="hover14 column">
-					<div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
-						<div class="agile_top_brand_left_grid_pos">
-							<img src="../images/offer.png" alt=" " class="img-responsive" />
-						</div>
-						<div class="agile_top_brand_left_grid1">
-							<figure>
-								<div class="snipcart-item block">
-									<div class="snipcart-thumb">
-										<a href="single.php?id='.$val['idproduct'].'"><img src="../images/'.$indiv['url'].'" alt=" " class="img-responsive" /></a>
-											<p>'.$productfromcat['name'].'</p>';
-                                            if($ispromo==true){
-                                            echo'<h4>'.$pricePromo.'€<span>'.$productfromcat['price'].'€</span></h4>';
-}
-                                else{
-                                 echo'<h4>$'.$val['price'].'€</h4>';
-
-}
-											
-										echo'</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="'.$productfromcat['name'].'" />
-													<input type="hidden" name="amount" value="'.$productfromcat['price'].'" />';
-                                                    if($ispromo==true){
-													echo'<input type="hidden" name="discount_amount" value="'.($productfromcat['price']*$promo/100).'" />';
+                if($idproduct != $id_product_from_cat) {
+                    $indiv = getImageUrlFromProduct($id_product_from_cat);
+                    $pricePromo = $productfromcat['price'] - ($productfromcat['price'] * $promo/100);
+                    ?>
+            <div class="col-md-3 w3ls_w3l_banner_left">
+                <div class="hover14 column">
+                    <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                        <div class="agile_top_brand_left_grid_pos">
+                            <img src="../images/offer.png" alt=" " class="img-responsive"/>
+                        </div>
+                        <div class="agile_top_brand_left_grid1">
+                            <figure>
+                                <div class="snipcart-item block">
+                                    <div class="snipcart-thumb">
+                                        <a href="../pages/single.php?id=<?php echo $id_product_from_cat; ?>">
+                                            <img src="../images/<?php echo $indiv['url']; ?>" alt="product" class="img-responsive"/>
+                                        </a>
+                                        <p><?php echo $productfromcat['name']; ?></p>
+                                        <h4>
+                                        <?php if ($ispromo) {
+                                            echo $pricePromo; ?>€<span><?php echo $val['price']; ?>€</span>
+                                        <?php } else {
+                                            echo $val['price']; ?>€
+                                        <?php } ?>
+                                        </h4>
+                                    </div>
+                                    <div class="snipcart-details">
+                                        <form action="#" method="post">
+                                            <fieldset>
+                                                <input type="hidden" name="cmd" value="_cart"/>
+                                                <input type="hidden" name="add" value="1"/>
+                                                <input type="hidden" name="business" value=" "/>
+                                                <input type="hidden" name="item_name" value="<?php echo $productfromcat['name']; ?>"/>
+                                                <input type="hidden" name="amount" value="<?php echo $productfromcat['price']; ?>"/>
+                                                <input type="hidden" name="discount_amount" value="
+                                                    <?php
+                                                        if ($ispromo) {
+                                                            echo $productfromcat['price'] * $promo/100;
+                                                        } else {
+                                                            echo 0;
                                                         }
-                                                else{
-                                                    echo'<input type="hidden" name="discount_amount" value="0" />';
-
-}
-												echo'	<input type="hidden" name="currency_code" value="EUR" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-										</form>
-									</div>
-								</div>
-							</figure>
-						</div>
-					</div>
-				</div>
-			</div>';
-}
-
-}
-?>
-		
-			<div class="clearfix"> </div>
-		</div>
-	</div>
+                                                    ?>
+                                                    "/>
+                                                <input type="hidden" name="currency_code" value="EUR"/>
+                                                <input type="hidden" name="return" value=" "/>
+                                                <input type="hidden" name="cancel_return" value=" "/>
+                                                <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <?php }?><!-- if close bracket -->
+            <?php }?><!-- for each close bracket -->
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
 </div>
 <!-- //brands -->
