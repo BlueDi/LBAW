@@ -1,10 +1,10 @@
 <?php
 
-function CreateWhishlistEntry($iduser,$idproduct,$url){
+function CreateWhishlistEntry($iduser,$idproduct){
     
 global $conn;
-    $stmt = $conn->prepare("INSERT INTO wishlist VALUES (?,?,?)");
-    $stmt->execute(array($iduser,$idproduct,$url));
+    $stmt = $conn->prepare("INSERT INTO wishlist VALUES (?,?)");
+    return $stmt->execute(array($iduser,$idproduct));
 
 }
 

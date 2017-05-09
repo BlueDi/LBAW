@@ -3,7 +3,7 @@
 function CreateImage($imgname,$url){
     global $conn;
     $stmt = $conn->prepare("INSERT INTO image VALUES (DEFAULT, ?, ?)");
-    $stmt->execute(array($imgname,$url));
+    return $stmt->execute(array($imgname,$url));
                    }
 function GetImageId($imgname){
     global $conn;

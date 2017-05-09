@@ -3,7 +3,7 @@ function CreateProduct($imgid, $productname, $price, $stock, $weight, $width, $h
 {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO product VALUES (DEFAULT, ?, ?,?,?,?,?,?,?,?,?)");
-    $stmt->execute(array($productname, $imgid, $categoryid, $brandid, $price, $stock, $weight, $width, $height, $description));
+    return $stmt->execute(array($productname, $imgid, $categoryid, $brandid, $price, $stock, $weight, $width, $height, $description));
 }
 
 function selectProductByCategory($idcategory, $number)

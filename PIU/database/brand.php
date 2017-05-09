@@ -2,7 +2,7 @@
 function CreateBrand($name,$email){
     global $conn;
     $stmt = $conn->prepare("INSERT INTO category VALUES (DEFAULT, ?, ?)");
-    $stmt->execute(array($name,$email));
+    return $stmt->execute(array($name,$email));
                    }
 function GetBrandIdByName($name){
     global $conn;
