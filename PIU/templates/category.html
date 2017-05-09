@@ -11,7 +11,7 @@
 <!-- banner -->
 <div class="banner">
     <?php include("../templates/sidebar.html");?>
-    <div class="w3l_banner_nav_right">
+    <div class="banner_nav_right">
         <?php
             $idcategory = $_GET['id'];
             $arr = selectProductByCategory($idcategory,10);
@@ -24,7 +24,7 @@
                 $ispromo = true;
             }
         ?>
-        <div class="w3l_banner_nav_right_banner5">
+        <div class="banner_nav_right_banner5">
             <h3>
                 <?php
                     echo GetCategoryById($idcategory)['name'];
@@ -33,8 +33,8 @@
                 <?php } ?>
             </h3>
         </div>
-        <div class="w3l_banner_nav_right_grid w3l_banner_nav_right_grid_sub">
-            <div class="w3l_banner_nav_right_grid1">
+        <div class="banner_nav_right_grid banner_nav_right_grid_sub">
+            <div class="banner_nav_right_grid1">
                 <h6>Sub categoria</h6>
                 <?php
                 foreach($arr as $val){
@@ -43,9 +43,9 @@
                     //join que vai buscar o url da imagem a partir do idimage
                     $indiv = getImageUrlFromProduct($val['idproduct']);
                 ?>
-                <div class="col-md-3 w3l_banner_left">
+                <div class="col-md-3 banner_left">
                     <div class="hover14 column">
-                        <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                        <div class="agile_top_brand_left_grid agile_top_brand_left_grid">
                             <div class="agile_top_brand_left_grid_pos">
                                 <img src="../images/offer.png" alt=" " class="img-responsive"/>
                             </div>

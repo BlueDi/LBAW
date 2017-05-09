@@ -11,8 +11,8 @@
 <!-- banner -->
 <div class="banner">
     <?php include("../templates/sidebar.html");?>
-    <div class="w3l_banner_nav_right">
-        <div class="w3l_banner_nav_right_banner3">
+    <div class="banner_nav_right">
+        <div class="banner_nav_right_banner3">
             <h3>Best Deals For New Products<span class="blink_me"></span></h3>
         </div>
         <div class="agileinfo_single">
@@ -118,10 +118,10 @@
 </div>
 <!-- //banner -->
 <!-- brands -->
-<div class="w3l_banner_nav_right_grid w3l_banner_nav_right_grid_popular">
+<div class="banner_nav_right_grid banner_nav_right_grid_popular">
     <div class="container">
         <h3>Products in the same category</h3>
-        <div class="w3l_banner_nav_right_grid1">
+        <div class="banner_nav_right_grid1">
         <?php
             $arr = selectProductByCategory($val['idcategory'], 8);
 
@@ -132,9 +132,9 @@
                     $indiv = getImageUrlFromProduct($id_product_from_cat);
                     $pricePromo = $productfromcat['price'] - ($productfromcat['price'] * $promo/100);
                     ?>
-            <div class="col-md-3 w3l_banner_left">
+            <div class="col-md-3 banner_left">
                 <div class="hover14 column">
-                    <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
+                    <div class="agile_top_brand_left_grid agile_top_brand_left_grid">
                         <div class="agile_top_brand_left_grid_pos">
                             <img src="../images/offer.png" alt=" " class="img-responsive"/>
                         </div>
