@@ -1123,7 +1123,11 @@ h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 .w3agile_newsletter_right input[type="submit"]:hover {
     font-weight: normal;
     border: 1px solid black;
-    color: #fff;
+    color: #ac8e56;
+}
+
+.w3agile_newsletter_right input[type="email"]::-webkit-input-placeholder {
+    color: white;
 }
 
 /*-- //newsletter --*/
