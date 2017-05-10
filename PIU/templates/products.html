@@ -12,8 +12,15 @@
 	<div class="banner">
 		<?php include("../templates/sidebar.html");?>
 		<div class="banner_nav_right">
+            <?php
+
+            date_default_timezone_set('Europe/Lisbon');
+            $date = date('Y-m-d', time());
+
+            
+        ?>
 			<div class="banner_nav_right_banner5">
-				<h3>Produtos em desconto<span class="blink_me"></span></h3>
+				<h3>Products on discount<span class="blink_me"></span></h3>
 			</div>
 			<div class="banner_nav_right_banner3_btm">
 				<div class="col-md-4 banner_nav_right_banner3_btml">
@@ -65,446 +72,90 @@
 			</div>
 			<div class="banner_nav_right_grid">
 				<h3>Popular Models</h3>
+                <?php 
+                        $categories = GetFirstXCategorys(4); 
+                        foreach($categories as $category){
+                            echo'<h4>'.$category['name'].'</h4>';
+
+                    if(GetCategoryPromo($category['idcategory'],$date)){
+                $promo = GetCategoryPromo($category['idcategory'],$date)['promopercentage'];
+                $ispromo = true;
+            }
+?>
 				<div class="banner_nav_right_grid1">
-					<h6>armchair</h6>
+<?php
+                    $arr=selectProductByCategory($category['idcategory'], 4);
+                foreach($arr as $val){
+                    $pricePromo = $val['price'] - ($val['price'] * $promo/100);
+
+                    //join que vai buscar o url da imagem a partir do idimage
+                    $indiv = getImageUrlFromProduct($val['idproduct']);
+                        
+?>					 
 					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/5.png" alt=" " class="img-responsive" /></a>
-											<p>EKTORP (armchair)</p>
-											<h4>259€</h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="EKTORP_poltrona" />
-													<input type="hidden" name="amount" value="259.00" />
-													<input type="hidden" name="discount_amount" value="0.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/6.png" alt=" " class="img-responsive" /></a>
-											<p>STRANDMON (armchair)</p>
-											<h4>199€ <span>210€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="STRANDMON_poltrona" />
-													<input type="hidden" name="amount" value="210" />
-													<input type="hidden" name="discount_amount" value="11" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/7.png" alt=" " class="img-responsive" /></a>
-											<p>SÖDERHAMN (armchair)</p>
-											<h4>260€ <span>300€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="SÖDERHAMN_poltrona" />
-													<input type="hidden" name="amount" value="300" />
-													<input type="hidden" name="discount_amount" value="40" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/8.png" alt=" " class="img-responsive" /></a>
-											<p>MUREN (retractable armchair)</p>
-											<h4>299€ <span>350€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="MUREN_poltrona" />
-													<input type="hidden" name="amount" value="350.00" />
-													<input type="hidden" name="discount_amount" value="50.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
+                    <div class="hover14 column">
+                        <div class="agile_top_brand_left_grid agile_top_brand_left_grid">
+                            <div class="agile_top_brand_left_grid_pos">
+                                <img src="../images/offer.png" alt=" " class="img-responsive"/>
+                            </div>
+                            <div class="agile_top_brand_left_grid1">
+                                <figure>
+                                    <div class="snipcart-item block">
+                                        <div class="snipcart-thumb">
+                                            <a href="../pages/single.php?id=<?php echo $val['idproduct']; ?>">
+                                                <img src="../images/<?php echo $indiv['url']; ?>" alt=" " class="img-responsive"/>
+                                            </a>
+                                            <p><?php echo $val['name']; ?></p>
+                                            <h4>
+                                                <?php if($ispromo){
+                                                    echo $pricePromo; ?>€<span><?php echo $val['price'];?>€</span>
+                                                <?php } else {
+                                                    echo $val['price']; ?>€
+                                                <?php }
+                                                ?>
+                                            </h4>
+                                        </div>
+                                        <div class="snipcart-details">
+                                            <form action="#" method="post">
+                                                <fieldset>
+                                                    <input type="hidden" name="cmd" value="_cart"/>
+                                                    <input type="hidden" name="add" value="1"/>
+                                                    <input type="hidden" name="business" value=" "/>
+                                                    <input type="hidden" name="item_name" value="<?php echo $val['name']; ?>"/>
+                                                    <input type="hidden" name="amount" value="<?php echo $val['price']; ?>"/>
+                                                    <input type="hidden" name="discount_amount" value="
+                                                        <?php
+                                                            if ($ispromo) {
+                                                                echo $val['price'] * $promo/100;
+                                                            } else {
+                                                                echo 0;
+                                                            }
+                                                        ?>
+                                                    "/>
+                                                    <input type="hidden" name="currency_code" value="EUR"/>
+                                                    <input type="hidden" name="return" value=" "/>
+                                                    <input type="hidden" name="cancel_return" value=" "/>
+                                                    <input type="submit" name="submit" value="Add to cart" class="button"/>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+    <?php 
+}
+
+?>
 					<div class="clearfix"> </div>
 				</div>
-				<div class="banner_nav_right_grid1">
-					<h6>shelfs</h6>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/9.png" alt=" " class="img-responsive" /></a>
-											<p>HEMNES (shelf)</p>
-											<h4>149€ <span>160€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="HEMNES_estante" />
-													<input type="hidden" name="amount" value="160.00" />
-													<input type="hidden" name="discount_amount" value="11.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/10.png" alt=" " class="img-responsive" /></a>
-											<p>LIATORP (shelf)</p>
-											<h4>199€ <span>205€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="LIATORP_estante" />
-													<input type="hidden" name="amount" value="205.00" />
-													<input type="hidden" name="discount_amount" value="6.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="tag"><img src="../images/tag.png" alt=" " class="img-responsive" /></div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/11.png" alt=" " class="img-responsive" /></a>
-											<p>BILLY (shelf)</p>
-											<h4>75€ <span>76€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="BILLY_estante_small" />
-													<input type="hidden" name="amount" value="76.00" />
-													<input type="hidden" name="discount_amount" value="1.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/12.png" alt=" " class="img-responsive" /></a>
-											<p>BILLY (shelf)</p>
-											<h4>90€ <span>95€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="BILLY_estante" />
-													<input type="hidden" name="amount" value="95.00" />
-													<input type="hidden" name="discount_amount" value="5.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="banner_nav_right_grid1">
-					<h6>Centering table</h6>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/13.png" alt=" " class="img-responsive" /></a>
-											<p>LACK (Centering table)</p>
-											<h4>20€ <span>25€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="LACK_mesadecentro" />
-													<input type="hidden" name="amount" value="25.00" />
-													<input type="hidden" name="discount_amount" value="5.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/14.png" alt=" " class="img-responsive" /></a>
-											<p>LACK (Centering table)</p>
-											<h4>35€ <span>36€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="LACK_mesadecentro" />
-													<input type="hidden" name="amount" value="36" />
-													<input type="hidden" name="discount_amount" value="1.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="tag"><img src="../images/tag.png" alt=" " class="img-responsive" /></div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/15.png" alt=" " class="img-responsive" /></a>
-											<p>STOCKHOLM (Centering table)</p>
-											<h4>219€ <span>225€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="STOCKHOLM_mesadecentro" />
-													<input type="hidden" name="amount" value="225" />
-													<input type="hidden" name="discount_amount" value="6" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-3 banner_left">
-						<div class="hover14 column">
-						<div class="agile_top_brand_left_grid agile_top_brand_left_grid">
-							<div class="agile_top_brand_left_grid_pos">
-								<img src="../images/offer.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="agile_top_brand_left_grid1">
-								<figure>
-									<div class="snipcart-item block">
-										<div class="snipcart-thumb">
-											<a href="single.php"><img src="../images/16.png" alt=" " class="img-responsive" /></a>
-											<p>STOCKHOLM (Centering table)</p>
-											<h4>199€ <span>205€</span></h4>
-										</div>
-										<div class="snipcart-details">
-											<form action="#" method="post">
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart" />
-													<input type="hidden" name="add" value="1" />
-													<input type="hidden" name="business" value=" " />
-													<input type="hidden" name="item_name" value="STOCKHOLM_round_mesadecentro" />
-													<input type="hidden" name="amount" value="205.00" />
-													<input type="hidden" name="discount_amount" value="6.00" />
-													<input type="hidden" name="currency_code" value="USD" />
-													<input type="hidden" name="return" value=" " />
-													<input type="hidden" name="cancel_return" value=" " />
-													<input type="submit" name="submit" value="Add to cart" class="button" />
-												</fieldset>
-											</form>
-										</div>
-									</div>
-								</figure>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
+                <?php 
+}
+
+?>
 			</div>
 		</div>
 		<div class="clearfix"></div>
