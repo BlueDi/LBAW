@@ -1,76 +1,109 @@
 <!-- products-breadcrumb -->
 <div class="products-breadcrumb">
-	<div class="container">
-		<ul>
-			<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
-			<li>Profile</li>
-		</ul>
-	</div>
+    <div class="container">
+        <ul>
+            <li>
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <a href="../pages/index.php">Home</a>
+                <span>|</span>
+            </li>
+            <li>Profile</li>
+        </ul>
+    </div>
 </div>
 <!-- //products-breadcrumb -->
 <!-- banner -->
 <div class="banner">
-	<?php include("../templates/sidebar.html");?>
-	<div class="banner_nav_right">
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<h3 class="panel-title"><?php $val=getById($_SESSION['iduser']);
-                                              echo $val['username'];
-                    ?></h3>
-			</div>
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://www.gambitmag.com/wp-content/uploads/2016/09/HmWDsHkfTFyShq7GqbE1_b01.png" class="img-circle img-responsive"> </div>
-					<div class=" col-md-9 col-lg-9 ">
-						<table class="table table-user-information">
-							<tbody>
-                                <?php 
-                                
-                               
-                                $val=getById($_SESSION['iduser']);
-								echo '<tr>
-									<td>Username</td>
-									<td>'.$val['username'].'</td>
-								</tr>
-								<tr>
-									<td>Date of Birth</td>
-									<td>'.$val['birthdate'].'</td>
-								</tr>
+    <?php include("../templates/sidebar.html");?>
+    <div class="banner_nav_right">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <?php
+					$val = getById($_SESSION['iduser']);
+                    echo $val['username'];
+                    ?>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center">
+                        <img alt="User Pic"
+                             src="http://www.gambitmag.com/wp-content/uploads/2016/09/HmWDsHkfTFyShq7GqbE1_b01.png"
+                             class="img-circle img-responsive">
+                    </div>
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
+                            <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td><?php echo $val['name']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Date of Birth</td>
+                                <td><?php echo $val['birthdate']; ?></td>
+                            </tr>
 
-								<tr>
-									<tr>
-										<td>Gender(need to add this to db and to register)</td>
-										<td>Male</td>
-									</tr>
-									<tr>
-										<td>Home Address</td>
-										<td>'.$val['address'].'</td>
-									</tr>
-									<tr>
-										<td>Email</td>
-										<td><a href='.$val['email'].'>'.$val['email'].'</a></td>
-									</tr>
-									<td>Phone Number</td>
-									<td>'.$val['phonenr'].'
-									</td>
-
-								</tr>'
-                            ?>
-							</tbody>
-						</table>
-						<div class="panel-footer">
-							<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-							<span class="pull-right">
-								<a href="../pages/editProfile.php" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-								<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                            <tr>
+                                <td>Gender (need to add this to db and to register)</td>
+                                <td>
+                                    <?php
+                                    if ($val['gender'] != null) {
+                                        echo $val['gender'];
+                                    } else {
+                                        echo 'Not defined';
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Home Address</td>
+                                <td><?php echo $val['address']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><?php echo $val['email']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Phone Number</td>
+                                <td>
+                                    <?php
+                                    if ($val['phonenr'] != null) {
+                                        echo $val['phonenr'];
+                                    } else {
+                                        echo 'Not defined';
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                            <?php if ($val['admin'] == true) { ?>
+                            <tr>
+                                <td>Admin</td>
+                                <td>True</td>
+                            </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                        <div class="panel-footer">
+                            <a href="mailto:<?php echo $val['email']; ?>" data-original-title="Broadcast Message"
+                               data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                            </a>
+                            <span class="pull-right">
+								<a href="../pages/editProfile.php" data-original-title="Edit this user"
+                                   data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </a>
+								<a href="../pages/RemoveUser.php" data-original-title="Remove this user"
+                                   data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </a>
 							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
 </div>
