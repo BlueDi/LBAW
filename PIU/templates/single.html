@@ -43,13 +43,24 @@
 						<label for="rating1">1</label>
 					</span>
                 </div>
+                <?php if(isset($_SESSION['iduser'])){
+?>
                 <div>
+                    
                     <form action="../actions/wishlist/add.php" method="post">
                         <input type="hidden" name="Iduser" value="<?php echo $_SESSION['iduser']; ?>"/>
                         <input type="hidden" name="Idproduct" value="<?php echo $idproduct; ?>"/>
-                        <input type="submit" name="add" value="Add to wishlist" class="button"/>
+                        <?php if(checkIfalreadyAdded($_SESSION['iduser'],$idproduct)==true){ ?>
+                        <input type="submit" name="add" value="Remove from wishlist" class="whishlist-btn"/>
+                        <?php }
+                        else{
+?>
+                        <input type="submit" name="add" value="Add to wishlist" class="whishlist-btn"/>
+                        <?php }?>
                     </form>
                 </div>
+        <?php }
+?>
                 <div class="w3agile_description">
                     <h4>Description: </h4>
                     <p><?php echo $val['description']; ?></p>

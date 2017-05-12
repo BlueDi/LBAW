@@ -5434,3 +5434,25 @@ ul.wmuSliderPagination {
     display: block;
     text-align: center;
 }
+
+/* Custom Shapes */
+.whishlist-btn{
+	border : solid 0px #ffffff;
+	border-radius : 20px;
+	moz-border-radius : 20px;
+	-webkit-box-shadow : 0px 0px 5px rgba(0,0,0,1.0);
+	-moz-box-shadow : 0px 0px 5px rgba(0,0,0,1.0);
+	box-shadow : 0px 0px 5px rgba(0,0,0,1.0);
+	font-size : 20px;
+	color : #e9ede1;
+	padding : 7px 0px;
+	background : #053494;
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#053494), color-stop(100%,#0a3c63));
+	background : -moz-linear-gradient(top, #053494 0%, #0a3c63 100%);
+	background : -webkit-linear-gradient(top, #053494 0%, #0a3c63 100%);
+	background : -o-linear-gradient(top, #053494 0%, #0a3c63 100%);
+	background : -ms-linear-gradient(top, #053494 0%, #0a3c63 100%);
+	background : linear-gradient(top, #053494 0%, #0a3c63 100%);
+	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#053494', endColorstr='#0a3c63',GradientType=0 );
+
+}

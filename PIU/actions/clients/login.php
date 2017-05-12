@@ -12,9 +12,6 @@ include($BASE_DIR.'/database/clients.php');
                 $_SESSION['iduser']= isLoginCorrect($username,$password)['iduser'];
                 
                 $_SESSION['admin']=isLoginCorrect($username,$password)['admin'];
-                echo'<script language="javascript">';
-				echo 'alert("Correct username and/or password.")';
-                echo '</script>';
                 $redirectUrl = $BASE_PIU.'pages/products.php';
 				echo '<script type="application/javascript">window.location.href = "'.$redirectUrl.'";</script>';
                 
