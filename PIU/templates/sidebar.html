@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
             <ul class="nav navbar-nav nav_1">
                 <?php
-                $arr = GetFirstXCategorys(20);
+                $arr = GetFirstXCategorys(6);
                 foreach ($arr as $val) { ?>
                 <li>
                     <a href="../pages/category.php?id=<?php echo $val['idcategory']; ?>"><?php echo $val['name']; ?></a>

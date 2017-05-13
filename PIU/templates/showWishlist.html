@@ -1,0 +1,41 @@
+<!-- products-breadcrumb -->
+<div class="products-breadcrumb">
+	<div class="container">
+		<ul>
+			<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>|</span></li>
+			
+		</ul>
+	</div>
+</div>
+<!-- //products-breadcrumb -->
+<!-- banner -->
+<div class="banner">
+	<?php include("../templates/sidebar.html");?>
+	<div class="banner_nav_right">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>image</th>
+                    <th>name</th>
+				</tr>
+			</thead>
+			<tbody>
+                <?php 
+                   
+                    $arr=GetWholeWishlist($_SESSION['iduser']);
+                    
+                    foreach($arr as $value){
+                    echo '<tr>
+<td><img src="../images/'.getImageUrlFromProduct($value['idproduct']).'"height="42" width="42"></td>
+<td><a href="../pages/single.php?id='.$value['idproduct'].'">'.getProductById($value['idproduct'])['name'].'</a></td>
+
+
+                   </tr>';
+}
+                 ?>
+				
+			</tbody>
+		</table>
+	</div>
+	<div class="clearfix"></div>
+</div>

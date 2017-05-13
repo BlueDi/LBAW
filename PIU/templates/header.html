@@ -79,10 +79,12 @@
                     $val = getById($_SESSION['iduser']);
 					if (isset($_SESSION['iduser'])) { ?>
                 <a href="../pages/profile.php"><?php echo $val['username']?></a>
+                
                 <div class="mega-dropdown-menu">
                     <div class="furnitures">
                         <ul class="dropdown-menu drp-mnu">
                             <li><a href="../actions/clients/logout.php">Logout</a></li>
+                            <li><a href="../pages/showWishlist.php">wishlist</a></li>
                             <?php if (isset($_SESSION['admin'])) {
                                 if ($_SESSION['admin']) { ?>
                             <li><a href="../pages/InsertProducts.php">Insert products as admin</a></li>
