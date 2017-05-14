@@ -17,7 +17,7 @@ function GetCategoryIdByName($name)
 function GetAllCategorys()
 {
     global $conn;
-    $stmt = $conn->prepare('SELECT * FROM category');
+    $stmt = $conn->prepare('SELECT * FROM category ORDER by idcategory ASC');
     $stmt->execute();
     return $stmt->fetchAll();
 }
@@ -45,4 +45,11 @@ function GetCategoryPromo($id, $curr_date)
     $stmt->execute(array($id, $curr_date, $curr_date));
     return $stmt->fetch();
 
+}
+
+function changePromo($id,$startdate,$enddate,$percentage){
+    global $conn;
+    $stmt = $conn->prepare('UPDATE category SET startdate=?,enddate=?,promopercentage=? WHERE idcategory=?');
+    $stmt->execute(array($startdate, $enddate,$percentage,$id));
+    
 }

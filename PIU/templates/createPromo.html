@@ -1,0 +1,32 @@
+<div class="banner">
+    <?php include("../templates/sidebar.html");?>
+    <div class="banner_nav_right">
+        <!-- login -->
+        <div class="w3_login">
+            <h3>Triggering promotion</h3>
+            <div class="w3_login_module">
+                <div class="form-module">
+                    <div class="toggle" style="visibility: hidden"></div>
+                    <div class="form">
+                        <h2>Select category and then start and end date</h2>
+                        <form action="../actions/category/promotion.php" method="post" enctype="multipart/form-data">
+                            <select name="category">
+                                <option selected hidden value="">Category</option>
+                                <?php
+                                $category_arr = GetAllCategorys();
+                                foreach($category_arr as $category){ ?>
+                                    <option value="<?php echo $value['idcategory']; ?>"><?php echo $category['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                            <input type="number" name="percentage" min="0" max="100">
+                            <input type="date" name="startdate" placeholder="" required="">
+                            <input type="date" name="endate" placeholder="" required="">
+                            <input type="submit" value="Create">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

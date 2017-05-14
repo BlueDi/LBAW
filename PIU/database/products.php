@@ -45,3 +45,4 @@ function getProductById($id)
     return $stmt->fetch();
 }
 
+?>

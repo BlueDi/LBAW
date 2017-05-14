@@ -7,7 +7,12 @@ global $conn;
     return $stmt->execute(array($iduser,$idproduct));
 
 }
-
+function checkIfalreadyAdded($iduser,$idproduct){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM wishlist WHERE iduser=? AND idproduct=?");
+    $stmt->execute(array($iduser,$idproduct));
+    return $stmt->fetch()==true;
+}
 function GetWholeWishlist($iduser){
     global $conn;
      $stmt = $conn->prepare("SELECT idproduct FROM wishlist WHERE iduser=?");
