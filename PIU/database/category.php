@@ -47,7 +47,7 @@ function GetCategoryPromo($id, $curr_date)
 
 }
 
-function changePromo($id,$startdate,$enddate,$percentage){
+function changePromo($id,$percentage,$startdate,$enddate){
     global $conn;
     $stmt = $conn->prepare('UPDATE category SET startdate=?,enddate=?,promopercentage=? WHERE idcategory=?');
     $stmt->execute(array($startdate, $enddate,$percentage,$id));

@@ -15,7 +15,7 @@
                                 <?php
                                 $category_arr = GetAllCategorys();
                                 foreach($category_arr as $category){ ?>
-                                    <option value="<?php echo $value['idcategory']; ?>"><?php echo $category['name']; ?></option>
+                                    <option value="<?php echo $category['idcategory']; ?>"><?php echo $category['name']; ?></option>
                                 <?php } ?>
                             </select>
                             <input type="number" name="percentage" min="0" max="100">
