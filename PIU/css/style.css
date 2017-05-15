@@ -762,8 +762,8 @@ h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 
 .agile_top_brand_left_grid1 img {
     margin: 0 auto;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .agile_top_brands_grids {
@@ -1123,7 +1123,11 @@ h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
 .w3agile_newsletter_right input[type="submit"]:hover {
     font-weight: normal;
     border: 1px solid black;
-    color: #fff;
+    color: #ac8e56;
+}
+
+.w3agile_newsletter_right input[type="email"]::-webkit-input-placeholder {
+    color: white;
 }
 
 /*-- //newsletter --*/
@@ -5430,7 +5434,6 @@ ul.wmuSliderPagination {
     display: block;
     text-align: center;
 }
-
 
 /* Custom Shapes */
 .whishlist-btn{
