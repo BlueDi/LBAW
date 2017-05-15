@@ -45,4 +45,10 @@ function getProductById($id)
     return $stmt->fetch();
 }
 
-?>
+function Search($name)
+{
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM product WHERE name=?");
+    $stmt->execute(array($name));
+    return $stmt->fetchAll();
+}

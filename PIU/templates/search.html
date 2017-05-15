@@ -1,0 +1,101 @@
+<!-- products-breadcrumb -->
+<div class="products-breadcrumb">
+    <div class="container-nav">
+        <ul>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a href="../pages/index.php">Home</a><span>|</span></li>
+            <li>Search</li>
+        </ul>
+    </div>
+</div>
+<!-- //products-breadcrumb -->
+<!-- banner -->
+<div class="banner">
+    <?php include("../templates/sidebar.html");?>
+    <div class="banner_nav_right">
+        <?php
+            date_default_timezone_set('Europe/Lisbon');
+            $date = date('Y-m-d', time());
+        ?>
+        <div class="banner_nav_right_banner5">
+            <h3>Search Results</h3>
+        </div>
+        <div class="banner_nav_right_grid">
+            <div class="banner_nav_right_grid1">
+                <?php
+                $product_searching = $_GET['product'];
+                $arr = Search($product_searching);
+
+                foreach ($arr as $val) {
+                    $pricePromo = $val['price'] - ($val['price'] * $promo/100);
+                    $indiv = getImageUrlFromProduct($val['idproduct']);
+
+                    if(GetCategoryPromo($idcategory,$date)){
+                        $promo = GetCategoryPromo($val['idcategory'],$date)['promopercentage'];
+                        $ispromo = true;
+                    }
+                ?>
+                <div class="col-md-3 banner_left">
+                    <div class="hover14 column">
+                        <div class="agile_top_brand_left_grid agile_top_brand_left_grid">
+                            <div class="agile_top_brand_left_grid_pos">
+                                <img src="../images/offer.png" alt=" " class="img-responsive"/>
+                            </div>
+                            <div class="agile_top_brand_left_grid1">
+                                <figure>
+                                    <div class="snipcart-item block">
+                                        <div class="snipcart-thumb">
+                                            <a href="../pages/single.php?id=<?php echo $val['idproduct']; ?>">
+                                                <img src="../images/<?php echo $indiv['url']; ?>" alt="<?php echo $val['name']; ?>"
+                                                     class="img-responsive"/>
+                                            </a>
+                                            <p><?php echo $val['name']; ?></p>
+                                            <h4>
+                                                <?php if($ispromo){
+                                                    echo $pricePromo; ?>€<span><?php echo $val['price'];?>€</span>
+                                                <?php } else {
+                                                    echo $val['price']; ?>€
+                                                <?php }
+                                                ?>
+                                            </h4>
+                                        </div>
+                                        <div class="snipcart-details">
+                                            <form action="#" method="post">
+                                                <fieldset>
+                                                    <input type="hidden" name="cmd" value="_cart"/>
+                                                    <input type="hidden" name="add" value="1"/>
+                                                    <input type="hidden" name="business" value=" "/>
+                                                    <input type="hidden" name="item_name"
+                                                           value="<?php echo $val['name']; ?>"/>
+                                                    <input type="hidden" name="amount"
+                                                           value="<?php echo $val['price']; ?>"/>
+                                                    <input type="hidden" name="discount_amount" value="
+                                                        <?php
+                                                        if ($ispromo) {
+                                                            echo $val['price'] * $promo/100;
+                                                        } else {
+                                                            echo 0;
+                                                        }
+                                                        ?>
+                                                    "/>
+                                                    <input type="hidden" name="currency_code" value="EUR"/>
+                                                    <input type="hidden" name="return" value=" "/>
+                                                    <input type="hidden" name="cancel_return" value=" "/>
+                                                    <input type="submit" name="submit" value="Add to cart"
+                                                           class="button"/>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!-- //banner -->
