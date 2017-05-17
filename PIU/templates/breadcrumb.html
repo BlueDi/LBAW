@@ -1,0 +1,29 @@
+<!-- products-breadcrumb -->
+<div class="products-breadcrumb">
+    <div class="container-nav">
+        <ul>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a href="../pages/index.php">Home</a></li>
+            <li>
+                <?php
+                $crumbs = explode("/",$_SERVER["REQUEST_URI"]);
+                $url_to_ignore = 5;
+                foreach(array_slice($crumbs,$url_to_ignore) as $crumb){
+                ?>
+                <span>|</span>
+                <?php
+                    $crumb_name = ucfirst(str_replace(array(".php","_"),array(""," "),$crumb));
+                    if (substr($crumb_name, 0, 6) === "Single")
+                        echo ucfirst(getProductById($_GET['id'])['name']);
+                    else if (substr($crumb_name, 0, 8) === "Category")
+                        echo GetCategoryById($_GET['id'])['name'];
+                    else if (substr($crumb_name, 0, 5) === "Login")
+                        echo "Sign In & Sign Up";
+                    else
+                        echo $crumb_name;
+                }
+                ?>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- //products-breadcrumb -->

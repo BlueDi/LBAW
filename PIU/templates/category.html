@@ -1,29 +1,17 @@
-<?php
-$idcategory = $_GET['id'];
-$arr = selectProductByCategory($idcategory,10);
-?>
-<!-- products-breadcrumb -->
-<div class="products-breadcrumb">
-    <div class="container-nav">
-        <ul>
-            <li><i class="fa fa-home" aria-hidden="true"></i><a href="../pages/index.php">Home</a><span>|</span></li>
-            <li><?php echo GetCategoryById($idcategory)['name']; ?></li>
-        </ul>
-    </div>
-</div>
-<!-- //products-breadcrumb -->
+<?php include("../templates/breadcrumb.html");?>
 <!-- banner -->
 <div class="banner">
     <?php include("../templates/sidebar.html");?>
     <div class="banner_nav_right">
         <?php
-            date_default_timezone_set('Europe/Lisbon');
-            $date = date('Y-m-d', time());
+        date_default_timezone_set('Europe/Lisbon');
+        $date = date('Y-m-d', time());
+        $idcategory = $_GET['id'];
 
-            if(GetCategoryPromo($idcategory,$date)){
-                $promo = GetCategoryPromo($idcategory,$date)['promopercentage'];
-                $ispromo = true;
-            }
+        if(GetCategoryPromo($idcategory,$date)){
+            $promo = GetCategoryPromo($idcategory,$date)['promopercentage'];
+            $ispromo = true;
+        }
         ?>
         <div class="banner_nav_right_banner5">
             <h3>
@@ -38,6 +26,7 @@ $arr = selectProductByCategory($idcategory,10);
             <div class="banner_nav_right_grid1">
                 <h6>Sub categoria</h6>
                 <?php
+                $arr = selectProductByCategory($idcategory,10);
                 foreach($arr as $val){
                     $pricePromo = $val['price'] - ($val['price'] * $promo/100);
 
@@ -54,7 +43,6 @@ $arr = selectProductByCategory($idcategory,10);
                                 <figure>
                                     <div class="snipcart-item block">
                                         <div class="snipcart-thumb">
-                                            <!-- <a href="single.php?id='.$val['idproduct'].'"><img src="../images/'.$indiv['url'].'" -->
                                             <a href="../pages/single.php?id=<?php echo $val['idproduct']; ?>">
                                                 <img src="../images/<?php echo $indiv['url']; ?>" alt=" " class="img-responsive"/>
                                             </a>
