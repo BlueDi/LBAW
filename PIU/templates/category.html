@@ -1,9 +1,13 @@
+<?php
+$idcategory = $_GET['id'];
+$arr = selectProductByCategory($idcategory,10);
+?>
 <!-- products-breadcrumb -->
 <div class="products-breadcrumb">
     <div class="container-nav">
         <ul>
             <li><i class="fa fa-home" aria-hidden="true"></i><a href="../pages/index.php">Home</a><span>|</span></li>
-            <li>Promotions</li>
+            <li><?php echo GetCategoryById($idcategory)['name']; ?></li>
         </ul>
     </div>
 </div>
@@ -13,9 +17,6 @@
     <?php include("../templates/sidebar.html");?>
     <div class="banner_nav_right">
         <?php
-            $idcategory = $_GET['id'];
-            $arr = selectProductByCategory($idcategory,10);
-
             date_default_timezone_set('Europe/Lisbon');
             $date = date('Y-m-d', time());
 
