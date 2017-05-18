@@ -18,6 +18,8 @@
                         echo GetCategoryById($_GET['id'])['name'];
                     else if (substr($crumb_name, 0, 5) === "Login")
                         echo "Sign In & Sign Up";
+                    else if (substr($crumb_name, 0, 6) === "Search")
+                        echo "Search";
                     else
                         echo $crumb_name;
                 }
