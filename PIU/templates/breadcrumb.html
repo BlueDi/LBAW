@@ -6,7 +6,7 @@
             <li>
                 <?php
                 $crumbs = explode("/",$_SERVER["REQUEST_URI"]);
-                $url_to_ignore = 5;
+                $url_to_ignore =4;
                 foreach(array_slice($crumbs,$url_to_ignore) as $crumb){
                 ?>
                 <span>|</span>
