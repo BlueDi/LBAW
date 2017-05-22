@@ -21,6 +21,7 @@
     <!-- //font-awesome icons -->
     <!-- js -->
     <script src="../javascript/jquery-3.1.1.min.js"></script>
+    
     <!-- //js -->
     <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic'
           rel='stylesheet' type='text/css'>
@@ -48,6 +49,7 @@
     include('../database/products.php');
     include('../database/wishlist.php');
 ?>
+<script src="../javascript/search.js"></script>
 <!-- //includes -->
 <body>
 <!-- header -->
@@ -56,10 +58,13 @@
         <a href="../pages/products.php">Promotions</a>
     </div>
     <div class="search">
-        <form action="../pages/search.php" method="get">
-            <input type="text" name="product" placeholder="Search a product..." required>
-            <input type="submit" value="">
-        </form>
+    
+        <input id="search-input" class="form-control" type="text" placeholder="Search..."/>
+        <span class="input-group-btn">
+            <button id="search-btn" class="btn btn-secondary" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </span>
     </div>
     <div class="product_list_header">
         <form action="#" method="post" class="last">

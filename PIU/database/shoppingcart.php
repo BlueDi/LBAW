@@ -5,22 +5,22 @@ function addtoCart($iduser,$idproduct,$qty){
     return $stmt->execute(array($iduser,$idproduct,$qty));
 
 }
-    function checkIfalreadyAdded($iduser,$idproduct){
+    function checkIfalreadyAddedtocart($iduser,$idproduct){
     global $conn;
     $stmt = $conn->prepare("SELECT * FROM shoppingcart WHERE iduser=? AND idproduct=?");
     $stmt->execute(array($iduser,$idproduct));
-    return $stmt->fetch()==true;
+    return $stmt->fetch();
 }
-function GetWholeWishlist($iduser){
+function GetWholeCart($iduser){
     global $conn;
      $stmt = $conn->prepare("SELECT * FROM shoppingcart WHERE iduser=?");
      $stmt->execute(array($iduser));
      return $stmt->fetchAll();
 }
 
-function deleteFromWishlist($iduser,$idproduct){
+function deleteFromcart($iduser,$idproduct){
     global $conn;
-    $stmt = $conn->prepare("DELETE FROM wishlist WHERE iduser=? AND idproduct=?");
+    $stmt = $conn->prepare("DELETE FROM shoppingcart WHERE iduser=? AND idproduct=?");
     $stmt->execute(array($iduser,$idproduct));
 }
     

@@ -15,15 +15,18 @@
                 <?php
                 $product_searching = $_GET['product'];
                 $arr = Search($product_searching);
-
+                
                 foreach ($arr as $val) {
-                    $pricePromo = $val['price'] - ($val['price'] * $promo/100);
-                    $indiv = getImageUrlFromProduct($val['idproduct']);
-
+                $idcategory=$val['idcategory'];
                     if(GetCategoryPromo($idcategory,$date)){
                         $promo = GetCategoryPromo($val['idcategory'],$date)['promopercentage'];
                         $ispromo = true;
                     }
+
+                    $pricePromo = $val['price'] - ($val['price'] * $promo/100);
+                    $indiv = getImageUrlFromProduct($val['idproduct']);
+
+                    
                 ?>
                 <div class="col-md-3 banner_left">
                     <div class="hover14 column">

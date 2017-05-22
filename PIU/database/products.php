@@ -52,3 +52,21 @@ function Search($name)
     $stmt->execute(array($name));
     return $stmt->fetchAll();
 }
+
+
+function searchProducts($query) {
+    // Sanitize query
+    $s_query = preg_replace('/\s+(?=([^"]*"[^"]*")*[^"]*$)/', '|', $query);
+    $s_query = preg_replace('/"(.*?)"/', '($1)', $s_query);
+    $s_query = preg_replace('/\s+/', '&', $s_query);
+    global $conn;
+    $stmt = $conn->prepare("SELECT P.*, COALESCE(AVG(rating), 0) AS Rating
+FROM Product P LEFT JOIN Rate R ON R.idProduct = P.idProduct, to_tsquery(?) query
+WHERE query @@ P.tsv
+GROUP BY P.idProduct, query
+ORDER BY ts_rank(P.tsv, query) DESC");
+    $stmt->execute(array($s_query));
+    return $stmt->fetchAll();
+}
+
+
