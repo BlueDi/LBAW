@@ -1,0 +1,56 @@
+<?php include("../templates/breadcrumb.html");?>
+<!-- banner -->
+<div class="banner">
+	<?php include("../templates/sidebar.html");?>
+	<div class="banner_nav_right">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Username</th>
+                    <th>Name</th>
+                    <th>Email</th>
+					<th>Activity</th>
+					
+					<th>Deactivate/Activate</th>
+                    <th>ADMIN</th>
+                    <th>Promote to admin</th>
+				</tr>
+			</thead>
+			<tbody>
+                <?php 
+                   
+                    $arr=getAllClients();
+                    
+                    foreach($arr as $value){
+                    //can't deactivate it self
+                    if($value['iduser']==$_SESSION['iduser']){
+
+}                   else{
+                    echo '<tr>'.
+
+                    '<td>'.$value['username'].'</td>'.
+                    '<td>'.$value['name'].'</td>'.
+                    '<td>'.$value['email'].'</td>';
+                    if($value['active']=='true')
+                    echo '<td>ACTIVE</td>';
+                    else
+                    echo '<td>INACTIVE</td>';
+                    echo '<td>'.'<form action="../actions/clients/deactivate.php" method="post">
+                    <input type="submit" name="id" value='.$value['iduser'].'></form>.</td>';
+
+                    if($value['admin']=='true')
+                    echo '<td> YES </td>';
+                    else
+                    echo '<td> NO </td>';
+
+                    echo '<td>'.'<form action="../actions/clients/promote.php" method="post">
+                    <input type="submit" name="idpromote" value='.$value['iduser'].'></form>.</td></tr>';
+}
+}
+                 ?>
+				
+			</tbody>
+		</table>
+	</div>
+	<div class="clearfix"></div>
+</div>

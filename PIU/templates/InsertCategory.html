@@ -11,10 +11,7 @@
                         <h2>Create your category</h2>
                         <form action="../actions/products/NewCategory.php" method="post" enctype="multipart/form-data">
                             <input type="text" name="category" placeholder="Category" required>
-                            <input type="number" name="promo_percentage" min="0" max="100" placeholder="Promotion">
-                            <?php $today_date = date("Y-m-d"); ?>
-                            <input type="date" name="start_date" min="<?php echo $today_date; ?>">
-                            <input type="date" name="end_date" min="<?php echo $today_date; ?>">
+                            
                             <input type="submit" value="Create">
                         </form>
                     </div>
