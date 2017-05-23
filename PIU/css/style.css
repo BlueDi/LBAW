@@ -5491,3 +5491,10 @@ ul.wmuSliderPagination {
 .banner_nav_right_grid1 .col-md-3{
    padding-bottom: 20px;
 }
+
+/* Product Page */
+
+.agileinfo_single_left p{
+	padding: 5px;
+	margin-left: 10px;
+}
