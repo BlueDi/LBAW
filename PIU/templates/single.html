@@ -21,7 +21,9 @@
             </div>
             <div class="col-md-8 agileinfo_single_right">
                 <div class="rating1">
+                    <form id="comment_form">
 					<span class="starRating">
+                      
 						<input id="rating5" type="radio" name="rating" value="5">
 						<label for="rating5">5</label>
 						<input id="rating4" type="radio" name="rating" value="4">
@@ -32,7 +34,9 @@
 						<label for="rating2">2</label>
 						<input id="rating1" type="radio" name="rating" value="1">
 						<label for="rating1">1</label>
+                           
 					</span>
+                 </form>
                 </div>
                 <?php if(isset($_SESSION['iduser'])){
 ?>
@@ -118,6 +122,74 @@
     </div>
     <div class="clearfix"></div>
 </div>
+
+<div class="banner_nav_right_grid banner_nav_right_grid_popular">
+<div class="container">
+    <h3>Comments</h3>
+    <?php
+
+    $reviews=getReviewsofaProduct($idproduct);
+    foreach($reviews as $review){
+
+
+    echo'
+                <div class="rating1">
+                    
+					<span class="starRating">';
+                        if($review['rating']==5)
+						echo'<input id="rating5" type="radio" name="rating" value="5" checked>';
+                        else
+                        echo'<input id="rating5" type="radio" name="rating" value="5">';
+                        echo'<label for="rating5">5</label>';
+
+
+                        if($review['rating']==4)
+						echo'<input id="rating4" type="radio" name="rating" value="4" checked>';
+                        else
+                        echo'<input id="rating4" type="radio" name="rating" value="4">';
+
+						echo'<label for="rating4">4</label>';
+
+
+                        if($review['rating']==3)
+						echo'<input id="rating3" type="radio" name="rating" value="3" checked>';
+                        else
+                        echo'<input id="rating3" type="radio" name="rating" value="3">';
+
+						echo'<label for="rating3">3</label>';
+
+                         if($review['rating']==2)
+						echo'<input id="rating2" type="radio" name="rating" value="2" checked>';
+                        else
+                        echo'<input id="rating2" type="radio" name="rating" value="2">';
+
+						echo'<label for="rating2">2</label>';
+
+
+                        if($review['rating']==1)
+						echo'<input id="rating1" type="radio" name="rating" value="1" checked>';
+                        else
+                        echo'<input id="rating1" type="radio" name="rating" value="1">';
+
+						echo'<label for="rating1">1</label>';
+
+                    
+                   echo'        
+					</span>
+                    <div>';
+                 
+
+
+
+    
+    
+
+    
+}
+?>
+    </div>
+</div>
+
 <!-- //banner -->
 <!-- brands -->
 <div class="banner_nav_right_grid banner_nav_right_grid_popular">

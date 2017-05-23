@@ -260,6 +260,12 @@ ul.agileits_social_icons li a, .banner_nav_right_banner_pet a, .banner_nav_right
     float: left;
     width: 27%;
     margin: .1em 0 0 10em;
+	resize: horizontal;
+}
+
+.search-btn {
+    float: left;
+	resize: horizontal;
 }
 
 .search input[type="text"] {
@@ -2617,6 +2623,7 @@ ul.wmuSliderPagination {
     padding: 10px 0;
     font-size: 14px;
     color: #fff;
+	background: #bfbfbf;
     font-weight: normal;
     width: 46.6%;
     border: none;
@@ -2625,14 +2632,14 @@ ul.wmuSliderPagination {
 }
 
 .agileinfo_mail_grid_right input[type="submit"]:hover, .agileinfo_mail_grid_right input[type="reset"]:hover {
-    background: #212121;
+    background: #808080;
 }
 
 .map iframe {
-    width: 100%;
-    min-height: 400px;
-    margin-bottom: -6px;
+    width: 100%; 
+    min-height: 300px;
 }
+
 
 /*-- //mail --*/
 /*-- single --*/

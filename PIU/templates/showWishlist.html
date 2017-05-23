@@ -6,8 +6,8 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>image</th>
-                    <th>name</th>
+					<th>Image</th>
+                    <th>Name</th>
                     <th>Remove from wishlist</th>
 				</tr>
 			</thead>
@@ -23,7 +23,8 @@
 <td> <form action="../actions/wishlist/add.php" method="post">
                         <input type="hidden" name="Iduser" value="'.$_SESSION['iduser'].'"/>
                         <input type="hidden" name="Idproduct" value="'.$value['idproduct'].'"/>
-                <input type="submit" name="add" value="X" /></form><td>
+                        <input type="hidden" name="wishlist" value="true"/>
+                        <input type="submit" name="add" value="X" /></form><td>
 
                    </tr>';
 }

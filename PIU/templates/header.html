@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>House - Cherish your home</title>
+    <title>Webstore House</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -48,6 +48,8 @@
     include('../database/brand.php');
     include('../database/products.php');
     include('../database/wishlist.php');
+    include('../database/review.php');
+
 ?>
 <script src="../javascript/search.js"></script>
 <!-- //includes -->
@@ -55,7 +57,7 @@
 <!-- header -->
 <div class="agileits_header">
     <div class="offers">
-        <a href="../pages/products.php">Promotions</a>
+        <a href="../pages/index.php">Homepage</a>
     </div>
     <div class="search">
     
@@ -89,8 +91,8 @@
                 <div class="mega-dropdown-menu">
                     <div class="furnitures">
                         <ul class="dropdown-menu drp-mnu">
-                            <li><a href="../actions/clients/logout.php">Logout</a></li>
-                            <li><a href="../pages/showWishlist.php">wishlist</a></li>
+							<li><a href="../pages/profile.php">Profile</a></li>
+                            <li><a href="../pages/showWishlist.php">Wishlist</a></li>
                             <?php if (isset($_SESSION['admin'])) {
                                 if ($_SESSION['admin']) { ?>
                             <li><a href="../pages/createPromo.php">Trigger promotion</a></li>
@@ -99,6 +101,7 @@
                             <li><a href="../pages/manageClients.php">Manage Users</a></li>
                             <?php }
                             } ?>
+							<li><a href="../actions/clients/logout.php">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -141,16 +144,16 @@
         </div>
         <div class="logo_products_left1">
             <ul class="special_items">
-                <li><a href="../pages/events.php">Events</a><i>/</i></li>
-                <li><a href="../pages/about.php">About Us</a><i>/</i></li>
-                <li><a href="../pages/products.php">Promotions</a><i>/</i></li>
+			<li><a href="../pages/about.php">About Us</a><i>/</i></li>
+			<li><a href="../pages/products.php">Promotions</a><i>/</i></li>
+                <li><a href="../pages/events.php">Events</a><i>/</i></li>         
                 <li><a href="../pages/services.php">Services</a></li>
             </ul>
         </div>
         <div class="logo_products_left1">
             <ul class="phone_email">
                 <li><i class="fa fa-phone" aria-hidden="true"></i>(+351) 22 508 1400</li>
-                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:webstore@feup.pt">webstore@feup.pt</a>
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:webstorehouseopen@gmail.com">webstorehouseopen@gmail.com</a>
                 </li>
             </ul>
         </div>
