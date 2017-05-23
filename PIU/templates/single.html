@@ -144,9 +144,10 @@ echo'<p>Register or login to submit a review </p>';
     <?php
 
     $reviews=getReviewsofaProduct($idproduct);
+$count=0;
     foreach($reviews as $review){
 
-
+$count=$count+1;
     echo'<div>
             <h4>'.getById($review['iduser'])['username'].'</h4>
             <h5>'.$review['date'].'</h5>
@@ -154,41 +155,41 @@ echo'<p>Register or login to submit a review </p>';
                     
 					<span class="starRating">';
                         if($review['rating']==5)
-						echo'<input id="rating5" type="radio" name="rating" value="5" checked>';
+						echo'<input id="rating5'.$count.'" type="radio" name="rating'.$count.'" value="5" checked disabled="true">';
                         else
-                        echo'<input id="rating5" type="radio" name="rating" value="5">';
-                        echo'<label for="rating5">5</label>';
+                        echo'<input id="rating5'.$count.'" type="radio" name="rating'.$count.'" value="5" disabled="true">';
+                        echo'<label for="rating5'.$count.'">5</label>';
 
 
                         if($review['rating']==4)
-						echo'<input id="rating4" type="radio" name="rating" value="4" checked>';
+						echo'<input id="rating4'.$count.'" type="radio" name="rating'.$count.'" value="4" checked disabled="true">';
                         else
-                        echo'<input id="rating4" type="radio" name="rating" value="4">';
+                        echo'<input id="rating4'.$count.'" type="radio" name="rating'.$count.'" value="4" disabled="true">';
 
-						echo'<label for="rating4">4</label>';
+						echo'<label for="rating4'.$count.'">4</label>';
 
 
                         if($review['rating']==3)
-						echo'<input id="rating3" type="radio" name="rating" value="3" checked>';
+						echo'<input id="rating3'.$count.'" type="radio" name="rating'.$count.'" value="3" checked disabled="true">';
                         else
-                        echo'<input id="rating3" type="radio" name="rating" value="3">';
+                        echo'<input id="rating3'.$count.'" type="radio" name="rating'.$count.'" value="3" disabled="true">';
 
-						echo'<label for="rating3">3</label>';
+						echo'<label for="rating3'.$count.'">3</label>';
 
                          if($review['rating']==2)
-						echo'<input id="rating2" type="radio" name="rating" value="2" checked>';
+						echo'<input id="rating2'.$count.'" type="radio" name="rating'.$count.'" value="2" checked disabled="true">';
                         else
-                        echo'<input id="rating2" type="radio" name="rating" value="2">';
+                        echo'<input id="rating2'.$count.'" type="radio" name="rating'.$count.'" value="2" disabled="true">';
 
-						echo'<label for="rating2">2</label>';
+						echo'<label for="rating2'.$count.'">2</label>';
 
 
                         if($review['rating']==1)
-						echo'<input id="rating1" type="radio" name="rating" value="1" checked>';
+						echo'<input id="rating1'.$count.'" type="radio" name="rating" value="1" checked disabled="true">';
                         else
-                        echo'<input id="rating1" type="radio" name="rating" value="1">';
+                        echo'<input id="rating1'.$count.'" type="radio" name="rating" value="1" disabled="true">';
 
-						echo'<label for="rating1">1</label>';
+						echo'<label for="rating1'.$count.'">1</label>';
 
                     
                    echo'        

@@ -16,8 +16,11 @@
         <div class="banner_nav_right_banner5">
             <h3>
                 <?php
-                    echo GetCategoryById($idcategory)['name'];
-                    if ($ispromo) { ?>
+                    echo GetCategoryById($idcategory)['name'].'<br>';
+                   
+                    if ($ispromo) { 
+                     echo  GetCategoryPromo($idcategory,$date)['promopercentage'].'% in all products';
+                        ?>
                     <span class="blink_me"></span>
                 <?php } ?>
             </h3>
@@ -25,6 +28,7 @@
         <div class="banner_nav_right_grid banner_nav_right_grid_sub">
             <div class="banner_nav_right_grid1">
                 <h6>Sub categoria</h6>
+                
                 <?php
                 $arr = selectProductByCategory($idcategory,10);
                 foreach($arr as $val){
