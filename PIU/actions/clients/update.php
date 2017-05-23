@@ -4,7 +4,6 @@
  include_once($BASE_DIR .'database/clients.php');
  
 
-
             $username=$_POST['username'];
 			$password=$_POST['password'];
             $email=$_POST['email'];

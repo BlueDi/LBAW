@@ -307,7 +307,7 @@ ul.agileits_social_icons li a, .banner_nav_right_banner_pet a, .banner_nav_right
 }
 
 .header_right1 h2 a {
-    font-size: .74em;
+    font-size: .73em;
     color: #fff;
     padding: .5em 1.5em;
     background: #ac8e56;
@@ -2623,7 +2623,7 @@ ul.wmuSliderPagination {
     padding: 10px 0;
     font-size: 14px;
     color: #fff;
-	background: #bfbfbf;
+	background: #b3b3b3;
     font-weight: normal;
     width: 46.6%;
     border: none;
@@ -2654,6 +2654,12 @@ ul.wmuSliderPagination {
 .agileinfo_single_left {
     padding: 2em;
     box-shadow: 0 0 5px #E1E1E1;
+}
+
+
+.comments textarea {
+	resize: horizontal;
+	overflow: auto;
 }
 
 /*-- Ratings --*/
@@ -2697,6 +2703,7 @@ ul.wmuSliderPagination {
     opacity: 1;
 }
 
+
 /*-- //Ratings --*/
 .agileinfo_single_right {
     padding-left: 5em;
@@ -2735,6 +2742,12 @@ ul.wmuSliderPagination {
 }
 
 /*-- //single --*/
+
+#product_info_box:hover {
+	border-style: solid;
+    border-width: 1px;
+}
+
 /*-- login --*/
 /* Pen Title */
 .pen-title {
@@ -4324,9 +4337,7 @@ ul.wmuSliderPagination {
         padding: .62em 1em;
     }
 
-    .header_right1 h2 a {
-        font-size: 14px;
-    }
+    
 
     .profile_details_drop a {
         padding-top: .5em;
@@ -4839,6 +4850,11 @@ ul.wmuSliderPagination {
     .w3_login_module {
         min-height: 433px;
     }
+	
+	.w3_login_module input[type=submit] {
+		background: #b3b3b3;
+	}
+	
 
     .agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
         width: 100%;
@@ -5463,6 +5479,12 @@ ul.wmuSliderPagination {
 	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#053494', endColorstr='#0a3c63',GradientType=0 );
 
 }
+/*  WISHLIST */
+ 
+.table {
+	margin-left : 40px;
+}
+
 
 /* Subcategory Products */
 

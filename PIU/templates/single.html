@@ -13,31 +13,17 @@
             $indiv = getImageUrlFromProduct($val['idproduct']);
             ?>
             <h5><?php echo $val['name']; ?></h5>
-            <div class="col-md-4 agileinfo_single_left">
+            <div class="col-md-4 agileinfo_single_left" id="product_info_box">
+			
                 <img id="example" src="../images/<?php echo $indiv['url']; ?>" alt=" " class="img-responsive" />
-                <p><?php echo $val['weight']; ?>kg</p>
-                <p><?php echo $val['width']; ?> x <?php echo $val['height']; ?> (width x height)</p>
-                <p>Available in Stock: <?php echo $val['stock']; ?></p>
+                <p>Size: <?php echo $val['width']; ?> x <?php echo $val['height']; ?></p>
+				<p>Weight: <?php echo $val['weight']; ?>kg</p>
+                <p>In Stock: <?php echo $val['stock']; ?></p>
             </div>
             <div class="col-md-8 agileinfo_single_right">
-                <div class="rating1">
-                    <form id="comment_form">
-					<span class="starRating">
-                      
-						<input id="rating5" type="radio" name="rating" value="5">
-						<label for="rating5">5</label>
-						<input id="rating4" type="radio" name="rating" value="4">
-						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating" value="3" checked>
-						<label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating" value="2">
-						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating" value="1">
-						<label for="rating1">1</label>
-                           
-					</span>
-                 </form>
-                </div>
+                
+                 
+               
                 <?php if(isset($_SESSION['iduser'])){
 ?>
                 <div>
@@ -62,12 +48,41 @@
                 </div>
                 <div class="comments">
                     <h4>Comment section</h4>
-                    <textarea form="comment_form" rows="4" cols="50"></textarea>
+                    <div>
                     <!-- post will save the review with the rating not yet sure how but will-->
                     <form id="comment_form" action="../actions/products/SubmitReview.php" method="post">
-                        <input type="submit" name="remove" value="Submit" class="button"/>
+                        <div class="rating1">
+                    
+					<span class="starRating">
+                      
+						<input id="rating5" type="radio" name="rating" value="5">
+						<label for="rating5">5</label>
+						<input id="rating4" type="radio" name="rating" value="4">
+						<label for="rating4">4</label>
+						<input id="rating3" type="radio" name="rating" value="3" checked>
+						<label for="rating3">3</label>
+						<input id="rating2" type="radio" name="rating" value="2">
+						<label for="rating2">2</label>
+						<input id="rating1" type="radio" name="rating" value="1">
+						<label for="rating1">1</label>
+                           
+					</span>
+                             </div>
+                        <textarea name="description" form="comment_form" rows="4" cols="50"></textarea>
+                        <input type="hidden" name="Iduser" value="<?php echo $_SESSION['iduser']; ?>"/>
+                        <input type="hidden" name="Idproduct" value="<?php echo $idproduct; ?>"/>
+                        <?php if(isset($_SESSION['iduser'])){ ?>
+                        <input type="submit" name="submit" value="Submit" class="button"/>
+                        <?php }
+                        else{
+echo'<p>Register or login to submit a review </p>';
+}
+
+?>
                     </form>
                 </div>
+                    </div>
+                    
                 <div class="snipcart-item block">
                     <div class="snipcart-thumb agileinfo_single_right_snipcart">
                         <?php
@@ -132,7 +147,9 @@
     foreach($reviews as $review){
 
 
-    echo'
+    echo'<div>
+            <h4>'.getById($review['iduser'])['username'].'</h4>
+            <h5>'.$review['date'].'</h5>
                 <div class="rating1">
                     
 					<span class="starRating">';
@@ -176,14 +193,14 @@
                     
                    echo'        
 					</span>
-                    <div>';
+                    </div>
+
+<div>
+<p>'.$review['description'].
+'</p>
+</div>
+</div>';
                  
-
-
-
-    
-    
-
     
 }
 ?>

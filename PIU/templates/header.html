@@ -49,6 +49,8 @@
     include('../database/products.php');
     include('../database/wishlist.php');
     include('../database/review.php');
+    date_default_timezone_set('Europe/Lisbon');
+    $date = date('Y-m-d', time());
 
 ?>
 <script src="../javascript/search.js"></script>
