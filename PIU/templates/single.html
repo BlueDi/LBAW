@@ -141,6 +141,11 @@ echo'<p>Register or login to submit a review </p>';
 <div class="banner_nav_right_grid banner_nav_right_grid_popular">
 <div class="container">
     <h3>Comments</h3>
+    
+    <table class="table">
+        <thead>
+        </thead>
+        <tbody>
     <?php
 
     $reviews=getReviewsofaProduct($idproduct);
@@ -148,7 +153,9 @@ $count=0;
     foreach($reviews as $review){
 
 $count=$count+1;
-    echo'<div>
+
+    echo'<tr><td>
+<div>
             <h4>'.getById($review['iduser'])['username'].'</h4>
             <h5>'.$review['date'].'</h5>
                 <div class="rating1">
@@ -192,19 +199,39 @@ $count=$count+1;
 						echo'<label for="rating1'.$count.'">1</label>';
 
                     
+                    
                    echo'        
 					</span>
                     </div>
 
 <div>
 <p>'.$review['description'].
-'</p>
+'<br><br></p>
 </div>
-</div>';
+<div>
+</td>';
+if($review['iduser']==$_SESSION['iduser']){
+
+echo'<td><form action="../actions/products/DeleteReview.php" method="post">
+ <fieldset>
+<input type="hidden" name="Iduser" value="'.$_SESSION['iduser'].'"/>
+<input type="hidden" name="Idproduct" value="'.$idproduct.'"/>
+<input type="hidden" name="date" value="'.$review['date'].'"/>
+<input type="submit" name="submit" value="X" class="button"/>
+</fieldset>
+
+
+</form></td>';
+}
+echo'
+</div>
+</div></tr>';
                  
     
 }
 ?>
+        </tbody>
+    </table>
     </div>
 </div>
 

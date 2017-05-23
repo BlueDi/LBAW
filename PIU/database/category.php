@@ -1,9 +1,9 @@
 <?php
-function CreateCategory($name, $promopercentage, $startdate, $enddate)
+function CreateCategory($name)
 {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO category VALUES (DEFAULT, ?, ?, ?,?)");
-    return $stmt->execute(array($name, $promopercentage, $startdate, $enddate));
+    return $stmt->execute(array($name, 0, NULL, NULL));
 }
 
 function GetCategoryIdByName($name)
