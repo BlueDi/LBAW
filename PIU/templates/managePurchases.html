@@ -33,20 +33,20 @@
 
 
 
-                    echo '<tr>
-                    <td><a href="../pages/showPurchase.php?id='.$value['idpurchase'].'">'.$value['idpurchase'].'</td>
-                    '<td>'.getById($value['iduser'])['username'].'</td>'.
+                   
+                   echo '<tr><td><a href="../pages/showPurchase.php?id='.$value['idpurchase'].'">'.$value['idpurchase'].'</td>
+                    <td>'.getById($value['iduser'])['username'].'</td>
                     <td>'.$totalprice.'</td>
                     
-                    '<td>'.$value['state'].'</td>';
+                    <td>'.$value['state'].'</td>';
                    
-                    echo '<td>'.'<form action="../actions/purchase/process.php" method="post">
+                    echo '<td><form action="../actions/purchase/process.php" method="post">
                     <input type="hidden" name="idpurchase" value="'.$value['idpurchase'].'">
                     <input type="submit" value="Accept"></form>.</td>';
 
-                    echo '<td>'.'<form action="../actions/purchase/reject.php" method="post">
+                    echo '<td><form action="../actions/purchase/reject.php" method="post">
                     <input type="hidden" name="idpurchase" value="'.$value['idpurchase'].'">
-                    <input type="hidden" name="iduser" value="'$value['iduser'].'">
+                    <input type="hidden" name="iduser" value="'.$value['iduser'].'">
                     <input type="submit" value="Reject"></form>.</td></tr>';
 }
 
