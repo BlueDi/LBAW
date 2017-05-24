@@ -6,46 +6,50 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Username</th>
-                    <th>Name</th>
-                    <th>Email</th>
-					<th>Activity</th>
+					<th>Purchase nº</th>
+                    <th>Username</th>
+                    <th>Price Total</th>
+					<th>State</th>
 					
-					<th>Deactivate/Activate</th>
-                    <th>ADMIN</th>
-                    <th>Promote to admin</th>
+					<th>Process</th>
+                    <th>Reject</th>
 				</tr>
 			</thead>
 			<tbody>
                 <?php 
                    
-                    $arr=getAllClients();
+
+                    if (isset($_SESSION['admin']) && $_SESSION['admin']){
+                    $arr=getAllPurchases();
                     
                     foreach($arr as $value){
-                    //can't deactivate it self
-                    if($value['iduser']==$_SESSION['iduser']){
+                    
+                    $totalprice=0;
 
-}                   else{
-                    echo '<tr>'.
-
-                    '<td>'.$value['username'].'</td>'.
-                    '<td>'.$value['name'].'</td>'.
-                    '<td>'.$value['email'].'</td>';
-                    if($value['active']=='true')
-                    echo '<td>ACTIVE</td>';
-                    else
-                    echo '<td>INACTIVE</td>';
-                    echo '<td>'.'<form action="../actions/clients/deactivate.php" method="post">
-                    <input type="submit" name="id" value='.$value['iduser'].'></form>.</td>';
-
-                    if($value['admin']=='true')
-                    echo '<td> YES </td>';
-                    else
-                    echo '<td> NO </td>';
-
-                    echo '<td>'.'<form action="../actions/clients/promote.php" method="post">
-                    <input type="submit" name="idpromote" value='.$value['iduser'].'></form>.</td></tr>';
+                    $arr2=getallfrom1Purchase($value['idpurchase']);
+                    foreach($arr2 as $purchaseproduct){
+                    $totalprice=$totalprice+$purchaseproduct['price'];
 }
+
+
+
+                    echo '<tr>
+                    <td><a href="../pages/showPurchase.php?id='.$value['idpurchase'].'">'.$value['idpurchase'].'</td>
+                    '<td>'.getById($value['iduser'])['username'].'</td>'.
+                    <td>'.$totalprice.'</td>
+                    
+                    '<td>'.$value['state'].'</td>';
+                   
+                    echo '<td>'.'<form action="../actions/purchase/process.php" method="post">
+                    <input type="hidden" name="idpurchase" value="'.$value['idpurchase'].'">
+                    <input type="submit" value="Accept"></form>.</td>';
+
+                    echo '<td>'.'<form action="../actions/purchase/reject.php" method="post">
+                    <input type="hidden" name="idpurchase" value="'.$value['idpurchase'].'">
+                    <input type="hidden" name="iduser" value="'$value['iduser'].'">
+                    <input type="submit" value="Reject"></form>.</td></tr>';
+}
+
 }
                  ?>
 				

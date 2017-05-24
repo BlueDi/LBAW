@@ -6,4 +6,19 @@ function CreatePurchase($date,$iduser){
 
 }
 
+function getAllPurchases(){
+     global $conn;
+    $stmt = $conn->prepare("SELECT * FROM purchase");
+    $stmt->execute();
+    return $stmt->fetchAll();
+
+}
+
+function processPurchase($idpurchase,$state){
+     global $conn;
+    $stmt = $conn->prepare("UPDATE purchase SET state=? WHERE idpurchase=?");
+     return $stmt->execute(array($state,$idpurchase));
+   
+    
+}
 ?>
