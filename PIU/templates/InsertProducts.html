@@ -11,9 +11,12 @@
                     <div class="form">
                         <h2>Create your product</h2>
                         <form action="../actions/products/Insert.php" method="post" enctype="multipart/form-data">
-                            <input type="text" name="ProductName" placeholder="Product name" required>
-                            <input type="file" name="fileToUpload" id="fileToUpload">
-                            <select name="category">
+                            <input id="insert_product_name" type="text" name="ProductName" placeholder="Product name" required>
+                            <label for="insert_product_name" hidden="true">product name</label>
+                            <input id="insert_product_file" type="file" name="fileToUpload" id="fileToUpload">
+                            <label for="insert_product_file" hidden="true">product file</label>
+                            <select id="insert_product_select_category" name="category">
+                            <label for="insert_product_select_category" hidden="true">product file</label>
                                 <option selected hidden value="">Category</option>
                                 <?php
                                 $category_arr = GetAllCategorys();
@@ -21,7 +24,8 @@
                                     <option value="<?php echo $value['idcategory']; ?>"><?php echo $category['name']; ?></option>
                                 <?php } ?>
                             </select>
-                            <select name="brand">
+                            <select id="insert_product_select_brand" name="brand">
+                            <label for="insert_product_select_brand" hidden="true">product file</label>
                                 <option selected hidden value="">Brand</option>
                                 <?php
                                 $brand_arr = GetAllBrands();
@@ -29,12 +33,18 @@
                                     <option value="<?php echo $value['idbrand']; ?>"><?php echo $brand['name']; ?></option>
                                 <?php } ?>
                             </select>
-                            <input type="number" name="Stock" min="0" max="100" placeholder="Stock">
-                            <input type="number" name="Price" min="0" placeholder="Price" required>
-                            <input type="number" name="Height" placeholder="Height (cm)">
-                            <input type="number" name="Width" placeholder="Width (cm)">
-                            <input type="number" name="Weight" placeholder="Weight (kg)">
-                            <input type="text" name="Description" placeholder="Write a description" required>
+                            <input id="insert_product_number" type="number" name="Stock" min="0" max="100" placeholder="Stock">
+                            <label for="insert_product_number" hidden="true">product stock</label>
+                            <input id="insert_product_price" type="number" name="Price" min="0" placeholder="Price" required>
+                            <label for="insert_product_price" hidden="true">product price</label>
+                            <input id="insert_product_height" type="number" name="Height" placeholder="Height (cm)">
+                            <label for="insert_product_height" hidden="true">product height</label>
+                            <input id="insert_product_width" type="number" name="Width" placeholder="Width (cm)">
+                            <label for="insert_product_width" hidden="true">product width</label>
+                            <input id="insert_product_weight" type="number" name="Weight" placeholder="Weight (kg)">
+                            <label for="insert_product_weight" hidden="true">product weight</label>
+                            <input id="insert_product_description" type="text" name="Description" placeholder="Write a description" required>
+                            <label for="insert_product_description" hidden="true">product description</label>
                             <input type="submit" value="Create">
                         </form>
                     </div>

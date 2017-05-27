@@ -8,26 +8,35 @@
 				<h3>Sign In & Sign Up</h3>
 				<div class="w3_login_module">
 					<div class="module form-module">
-					  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+					  <div class="toggle"><em class="fa fa-times fa-pencil"></em>
 						<div class="tooltip">Sign up/in</div>
 					  </div>
 					  <div class="form">
 						<h2>Login to your account</h2>
 						<form action="../actions/clients/login.php" method="post">
-						  <input type="text" name="Username" placeholder="Username" required=" ">
-						  <input type="password" name="Password" placeholder="Password" required=" ">
-						  <input type="submit" value="Login">
+						  <input id="login_username_input" type="text" name="Username" placeholder="Username" required=" ">
+						  <label for="login_username_input" hidden="true">log_in username</label>
+						  <input id="login_pass_input" type="password" name="Password" placeholder="Password" required=" ">
+						  <label for="login_pass_input" hidden="true">log_in pass</label>
+						  <input id="login_button" type="submit" value="Login">
+						  <label for="login_button" hidden="true">log_in button</label>
 						</form>
 					  </div>
 					  <div class="form">
 						<h2>Create an account</h2>
 						<form action="../actions/clients/register.php" method="post">
-						  <input type="text" name="Username" placeholder="Username" required=" ">
-						  <input type="password" name="Password" placeholder="Password" required=" ">
-						  <input type="email" name="Email" placeholder="Email" required=" ">
-                          <input type="text" name="Realname" placeholder="Realname" required="">
-                          <input type="date" name="bdate" placeholder="" required="">
-                          <input type="text" name="Address" placeholder="home address" required="">
+						  <input id="register_username_input" type="text" name="Username" placeholder="Username" required=" ">
+						  <label for="register_username_input" hidden="true">username</label>
+						  <input id="register_pass_input" type="password" name="Password" placeholder="Password" required=" ">
+						  <label for="register_pass_input" hidden="true">password</label>
+						  <input id="register_email_input" type="email" name="Email" placeholder="Email" required=" ">
+						  <label for="register_email_input" hidden="true">email</label>
+                          <input id="register_real_name_input" type="text" name="Realname" placeholder="Realname" required="">
+                          <label for="register_real_name_input" hidden="true">name</label>
+                          <input id="register_bdate_input" type="date" name="bdate" placeholder="" required="">
+                          <label for="register_bdate_input" hidden="true">bdate</label>
+                          <input id="register_home_add_input" type="text" name="Address" placeholder="home address" required="">
+                          <label for="register_home_add_input" hidden="true">home address</label>
                           <!--<input>
                             <select name="birthdate">
                                 
@@ -63,21 +72,21 @@
 		<div class="container">
 			<div class="col-md-4 wthree_news_top_serv_btm_grid">
 				<div class="wthree_news_top_serv_btm_grid_icon">
-					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+					<em class="fa fa-shopping-cart" aria-hidden="true"></em>
 				</div>
 				<h3>Easy and Quick Search</h3>
 				<p>Navigate easily in our newest website. Your furniture is just a click away.</p>
 			</div>
 			<div class="col-md-4 wthree_news_top_serv_btm_grid">
 				<div class="wthree_news_top_serv_btm_grid_icon">
-					<i class="fa fa-bar-chart" aria-hidden="true"></i>
+					<em class="fa fa-bar-chart" aria-hidden="true"></em>
 				</div>
 				<h3>More than 1000 purchases per month</h3>
 				<p>In the top of DECO's Online Sales Ranking with more than 10000 visitors and 1000 purchases every month.</p>
 			</div>
 			<div class="col-md-4 wthree_news_top_serv_btm_grid">
 				<div class="wthree_news_top_serv_btm_grid_icon">
-					<i class="fa fa-truck" aria-hidden="true"></i>
+					<em class="fa fa-truck" aria-hidden="true"></em>
 				</div>
 				<h3>Fast and Safe Home Delivery</h3>
 				<p>We count with 20 trucks to ensure the integrity of the furniture.</p>

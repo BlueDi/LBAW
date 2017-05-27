@@ -22,6 +22,10 @@
                         $promo = GetCategoryPromo($val['idcategory'],$date)['promopercentage'];
                         $ispromo = true;
                     }
+                else{
+                        $promo=0;
+                        $ispromo=false;
+                    }
 
                     $pricePromo = $val['price'] - ($val['price'] * $promo/100);
                     $indiv = getImageUrlFromProduct($val['idproduct']);

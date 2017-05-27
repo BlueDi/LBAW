@@ -5,18 +5,22 @@ $(function () {
 
   $("#search-btn").click(function() {
     var search_terms = $("#search-input").val();
-    history.pushState('p', null, '?search=' + search_terms);
-
+    //history.pushState('p', null, '?search=' + search_terms);
+    window.location.href= 'https://gnomo.fe.up.pt/~lbaw1621/PIU/pages/search.php?product='+search_terms;
+/*
     $.ajax({
-      url: "http://gnomo.fe.up.pt/~lbaw1621/PIU/actions/products/search.php",
+      url: "https://gnomo.fe.up.pt/~lbaw1621/PIU/actions/products/search.php",
       method: "POST",
       data: {query: search_terms}
     }).done(updateProducts).fail(function(x, err) { console.error(err); });
-  });
+  });*/
 });
-
+});
 function updateProducts(new_products) {
-  console.log("Updating products");
+    
+    
+
+ console.log("Updating products");
   console.log(new_products.length);
 
   // Update num products header

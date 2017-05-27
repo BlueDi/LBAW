@@ -21,13 +21,13 @@
                     if ($ispromo) { 
                      echo  GetCategoryPromo($idcategory,$date)['promopercentage'].'% in all products';
                         ?>
-                    <span class="blink_me"></span>
+                   <!--<h4 class="blink_me"></h4>-->
                 <?php } ?>
             </h3>
         </div>
         <div class="banner_nav_right_grid banner_nav_right_grid_sub">
             <div class="banner_nav_right_grid1">
-                <h6>Sub categoria</h6>
+                <h6>Sub category</h6>
                 
                 <?php
                 $arr = selectProductByCategory($idcategory,10);
@@ -41,14 +41,14 @@
                     <div class="hover14 column">
                         <div class="agile_top_brand_left_grid agile_top_brand_left_grid">
                             <div class="agile_top_brand_left_grid_pos">
-                                <img src="../images/offer.png" alt=" " class="img-responsive"/>
+                                <img src="../images/offer.png" alt="A dinner table, designed for four people, pained black" class="img-responsive"/>
                             </div>
                             <div class="agile_top_brand_left_grid1">
                                 <figure>
                                     <div class="snipcart-item block">
                                         <div class="snipcart-thumb">
                                             <a href="../pages/single.php?id=<?php echo $val['idproduct']; ?>">
-                                                <img src="../images/<?php echo $indiv['url']; ?>" alt=" " class="img-responsive"/>
+                                                <img src="../images/<?php echo $indiv['url']; ?>" alt="A product." class="img-responsive"/>
                                             </a>
                                             <p><?php echo $val['name']; ?></p>
                                             <h4>

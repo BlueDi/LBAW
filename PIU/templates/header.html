@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 <head>
     <title>Webstore House</title>
     <!-- for-mobile-apps -->
@@ -21,7 +21,7 @@
     <!-- //font-awesome icons -->
     <!-- js -->
     <script src="../javascript/jquery-3.1.1.min.js"></script>
-    
+
     <!-- //js -->
     <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic'
           rel='stylesheet' type='text/css'>
@@ -38,6 +38,7 @@
             });
         });
     </script>
+    <script src="../javascript/search.js"></script>
     <!-- //start-smoth-scrolling -->
 </head>
 <!-- includes -->
@@ -55,7 +56,7 @@
     $date = date('Y-m-d', time());
 
 ?>
-<script src="../javascript/search.js"></script>
+
 <!-- //includes -->
 <body>
 <!-- header -->
@@ -64,11 +65,10 @@
         <a href="../pages/index.php">Homepage</a>
     </div>
     <div class="search">
-    
-        <input id="search-input" class="form-control" type="text" placeholder="Search..."/>
+        <input id="search-input" type="text" placeholder="Search..."/>
+        <label hidden for="search-input" title="search here for a product">Search for a product</label>
         <span class="input-group-btn">
-            <button id="search-btn" class="btn btn-secondary" type="button">
-                <i class="fa fa-search"></i>
+            <button id="search-btn" class="search-button" type="button">
             </button>
         </span>
     </div>
@@ -85,17 +85,18 @@
         <ul>
             <li class="dropdown profile_details_drop">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <em class="fa fa-user" aria-hidden="true"></em>
                     <span class="caret"></span>
                 </a>
                 <?php
                 $val = getById($_SESSION['iduser']);
+                $smarty->{$username = $val['username']};
 	            if (isset($_SESSION['iduser'])) { ?>
-                <a href="../pages/profile.php"><?php echo $val['username']?></a>
+                <a href="../pages/profile.php"><?php echo $username ?></a>
                 <div class="mega-dropdown-menu">
                     <div class="furnitures">
                         <ul class="dropdown-menu drp-mnu">
-							<li><a href="../pages/profile.php">Profile</a></li>
+					                  <li><a href="../pages/profile.php">Profile</a></li>
                             <li><a href="../pages/showWishlist.php">Wishlist</a></li>
                             <?php if (isset($_SESSION['admin'])) {
                                 if ($_SESSION['admin']) { ?>
@@ -106,7 +107,7 @@
                             <li><a href="../pages/managePurchases.php">Manage Purchases</a></li>
                             <?php }
                             } ?>
-							<li><a href="../actions/clients/logout.php">Logout</a></li>
+		                        <li><a href="../actions/clients/logout.php">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -145,20 +146,20 @@
 <div class="logo_products">
     <div class="container">
         <div class="logo_products_left">
-            <h1><a href="../pages/index.php"><span>Webstore</span> House</a></h1>
+            <h1><a href="../pages/index.php"><h2>Webstore</h2> House</a></h1>
         </div>
         <div class="logo_products_left1">
             <ul class="special_items">
-			<li><a href="../pages/about.php">About Us</a><i>/</i></li>
-			<li><a href="../pages/products.php">Promotions</a><i>/</i></li>
-                <li><a href="../pages/events.php">Events</a><i>/</i></li>         
+	               <li><a href="../pages/about.php">About Us</a><em>/</em></li>
+                <li><a href="../pages/products.php">Promotions</a><em>/</em></li>
+                <li><a href="../pages/events.php">Events</a><em>/</em></li>
                 <li><a href="../pages/services.php">Services</a></li>
             </ul>
         </div>
         <div class="logo_products_left1">
             <ul class="phone_email">
-                <li><i class="fa fa-phone" aria-hidden="true"></i>(+351) 22 508 1400</li>
-                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:webstorehouseopen@gmail.com">webstorehouseopen@gmail.com</a>
+                <li><em class="fa fa-phone" aria-hidden="true"></em>(+351) 22 508 1400</li>
+                <li><em class="fa fa-envelope-o" aria-hidden="true"></em><a href="mailto:webstorehouseopen@gmail.com">webstorehouseopen@gmail.com</a>
                 </li>
             </ul>
         </div>

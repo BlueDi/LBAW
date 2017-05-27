@@ -14,6 +14,13 @@ function selectProductByCategory($idcategory, $number)
     return $stmt->fetchAll();
 }
 
+function selectProducts($number){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM product  ORDER BY idproduct ASC LIMIT ?");
+    $stmt->execute(array($number));
+    return $stmt->fetchAll();
+}
+
 function selectNewProducts($number)
 {
     global $conn;
@@ -45,28 +52,35 @@ function getProductById($id)
     return $stmt->fetch();
 }
 
-function Search($name)
-{
-    global $conn;
-    $stmt = $conn->prepare("SELECT * FROM product WHERE name=?");
-    $stmt->execute(array($name));
-    return $stmt->fetchAll();
-}
-
-
-function searchProducts($query) {
-    // Sanitize query
+function Search($query) {
     $s_query = preg_replace('/\s+(?=([^"]*"[^"]*")*[^"]*$)/', '|', $query);
     $s_query = preg_replace('/"(.*?)"/', '($1)', $s_query);
     $s_query = preg_replace('/\s+/', '&', $s_query);
+
     global $conn;
-    $stmt = $conn->prepare("SELECT P.*, COALESCE(AVG(rating), 0) AS Rating
-FROM Product P LEFT JOIN Rate R ON R.idProduct = P.idProduct, to_tsquery(?) query
-WHERE query @@ P.tsv
-GROUP BY P.idProduct, query
-ORDER BY ts_rank(P.tsv, query) DESC");
+    $stmt = $conn->prepare("
+      SELECT *
+      FROM product
+      WHERE search @@ to_tsquery(?)
+      LIMIT 10;
+    ");
     $stmt->execute(array($s_query));
     return $stmt->fetchAll();
 }
 
+function searchProducts($query) {
+    $s_query = preg_replace('/\s+(?=([^"]*"[^"]*")*[^"]*$)/', '|', $query);
+    $s_query = preg_replace('/"(.*?)"/', '($1)', $s_query);
+    $s_query = preg_replace('/\s+/', '&', $s_query);
 
+    global $conn;
+    $stmt = $conn->prepare("
+      SELECT P.*, COALESCE(AVG(rating), 0) AS Rating
+      FROM product P LEFT JOIN review R ON R.idproduct = P.idproduct, to_tsquery(?) query
+      WHERE query @@ P.tsv
+      GROUP BY P.idproduct, query
+      ORDER BY ts_rank(P.tsv, query) DESC
+    ");
+    $stmt->execute(array($s_query));
+    return $stmt->fetchAll();
+}

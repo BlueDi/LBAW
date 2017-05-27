@@ -18,7 +18,7 @@
                     
                     foreach($arr as $value){
                     echo '<tr>
-<td><img src="../images/'.getImageUrlFromProduct($value['idproduct'])['url'].'" height="42" width="42"/></td>
+<td><img src="../images/'.getImageUrlFromProduct($value['idproduct'])['url'].'" alt="" height="42" width="42"/></td>
 <td><a href="../pages/single.php?id='.$value['idproduct'].'">'.getProductById($value['idproduct'])['name'].'</a></td>
 <td> <form action="../actions/wishlist/add.php" method="post">
                         <input type="hidden" name="Iduser" value="'.$_SESSION['iduser'].'"/>
