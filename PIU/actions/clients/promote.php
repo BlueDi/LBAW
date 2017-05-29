@@ -12,12 +12,7 @@ else{
 
 promoteAdmin($idpromote,$bool);
 
-               echo'<script language="javascript">';
-                if($bool=='false')
-				echo 'alert("User was demoted")';
-                else
-                echo 'alert("User was promoted")';
-                echo '</script>';
+             
                 $redirectUrl = '../../pages/manageClients.php';
 				echo '<script type="application/javascript">window.location.href = "'.$redirectUrl.'";</script>';
 ?>

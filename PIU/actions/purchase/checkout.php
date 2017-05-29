@@ -7,7 +7,7 @@ include_once($BASE_DIR . 'database/category.php');
 include_once($BASE_DIR . 'database/products.php');
 
 date_default_timezone_set('Europe/Lisbon');
-$date = date('Y-m-d', time());
+$date = date('Y-m-d H:i:s', time());
 
 $userid = $_SESSION['iduser'];
 CreatePurchase($date,$userid);

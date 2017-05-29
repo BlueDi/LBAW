@@ -18,9 +18,7 @@ include($BASE_DIR.'/database/clients.php');
             }
             
             else{
-                echo'<script language="javascript">';
-				echo 'alert("inCorrect username and/or password.")';
-				echo '</script>';
+               
                 $redirectUrl = $BASE_PIU.'pages/login.php';
 				echo '<script type="application/javascript">window.location.href = "'.$redirectUrl.'";</script>';
                 

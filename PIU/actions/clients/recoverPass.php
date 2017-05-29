@@ -21,13 +21,9 @@ if($check==true){
     
                     if (mail ($to, $subject, $body, $from)) {
 							
-                            echo '<script language="javascript">';
-							echo 'alert("message successfully sent")';
-							echo '</script>';
+                           
                         } else {                                                                                          
-                            echo '<script language="javascript">';
-							echo 'alert("An error has occured! Please try again later")';
-							echo '</script>';
+                            
                         }
     
      $redirectUrl = '../../pages/login.php';
