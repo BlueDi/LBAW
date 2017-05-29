@@ -345,8 +345,8 @@ ul.dropdown-menu.drp-mnu li a i {
     margin-right: 7em;
 }
 
-.logo_products_left h1 a {
-    font-size: 1.5em;
+.logo_products_left strong a {
+    font-size: 2.8em;
     color: #212121;
     text-decoration: none;
     text-transform: uppercase;
@@ -363,7 +363,7 @@ ul.dropdown-menu.drp-mnu li a i {
     color: #fff;
 }
 
-.logo_products_left h1 a h2 {
+.logo_products_left strong a strong {
     font-size: .3em;
     display: block;
     color: #ac8e56;
@@ -727,7 +727,7 @@ ul.dropdown-menu.drp-mnu li a i {
     right: 10%;
 }
 
-.top-brands h3, .furniture h3, .mail h3, .testimonials h3, .w3_login h3, .banner_nav_right_grid h3,
+.top-brands h3, .furniture h4, .mail h3, .testimonials h3, .w3_login h3, .banner_nav_right_grid h3,
 h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
     text-align: center;
     color: #212121;
@@ -943,6 +943,7 @@ h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
     -webkit-animation: shine .75s;
     animation: shine .75s;
 }
+
 
 @-webkit-keyframes shine {
     100% {
@@ -1425,6 +1426,7 @@ h3.title, .faq h3, .services h3, .about h3, .team h3, .events h3 {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+
 
 @-moz-keyframes blinker {
     0% {
@@ -2876,7 +2878,7 @@ ul.wmuSliderPagination {
     margin: 0 0 20px;
     padding: 10px 15px;
     box-sizing: border-box;
-    font-wieght: 400;
+    font-weight: 400;
     -webkit-transition: 0.3s ease;
     transition: 0.3s ease;
     font-size: 14px;
@@ -5483,7 +5485,7 @@ ul.wmuSliderPagination {
 .whishlist-btn {
 	border : solid 0px #ffffff;
 	border-radius : 10px;
-	moz-border-radius : 10px;
+	-moz-border-radius : 10px;
 	-webkit-box-shadow : 0px 0px 5px rgba(0,0,0,1.0);
 	-moz-box-shadow : 0px 0px 5px rgba(0,0,0,1.0);
 	box-shadow : 0px 0px 5px rgba(0,0,0,1.0);

@@ -163,12 +163,11 @@
         <div class="clearfix"></div>
     </div>
 </div>
-<!--</div>-->
 <!-- //top-brands -->
 <!-- furniture -->
 <div class="furniture">
     <div class="container">
-        <h3>Top Products</h3>
+        <h4>Top Products</h4>
         <div class="furniture_grids">
             <div class="col-md-3 furniture_grid furniture_grid_left">
                 <div class="furniture_grid2">
@@ -177,7 +176,7 @@
                     $arr = GetFirstXCategorys(20);
                     foreach ($arr as $val) { ?>
                         <li>
-                            <i class="fa fa-check" aria-hidden="true"></i>
+                            <em class="fa fa-check" aria-hidden="true"></em>
                             <a href="../pages/category.php?id=<?php echo $val['idcategory']; ?>">
                                 <?php echo $val['name']; ?>
                             </a>
