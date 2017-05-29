@@ -52,6 +52,7 @@
     include('../database/review.php');
     include('../database/purchase.php');
     include('../database/purchaseproduct.php');
+    include('../database/shoppingcart.php');
     date_default_timezone_set('Europe/Lisbon');
     $date = date('Y-m-d', time());
 
@@ -73,7 +74,7 @@
         </span>
     </div>
     <div class="product_list_header">
-        <form action="#" method="post" class="last">
+        <form action="../pages/showCart.php" method="post" class="last">
             <fieldset>
                 <input type="hidden" name="cmd" value="_cart"/>
                 <input type="hidden" name="display" value="1"/>
@@ -98,13 +99,14 @@
                         <ul class="dropdown-menu drp-mnu">
 					                  <li><a href="../pages/profile.php">Profile</a></li>
                             <li><a href="../pages/showWishlist.php">Wishlist</a></li>
+                            <li><a href="../pages/managePurchases.php">Manage Purchases</a></li>
                             <?php if (isset($_SESSION['admin'])) {
                                 if ($_SESSION['admin']) { ?>
                             <li><a href="../pages/createPromo.php">Trigger promotion</a></li>
                             <li><a href="../pages/InsertProducts.php">Insert products as admin</a></li>
                             <li><a href="../pages/InsertCategory.php">Insert categories as admin</a></li>
                             <li><a href="../pages/manageClients.php">Manage Users</a></li>
-                            <li><a href="../pages/managePurchases.php">Manage Purchases</a></li>
+                            
                             <?php }
                             } ?>
 		                        <li><a href="../actions/clients/logout.php">Logout</a></li>

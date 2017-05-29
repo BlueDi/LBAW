@@ -10,9 +10,10 @@
                     <th>Username</th>
                     <th>Price Total</th>
 					<th>State</th>
-					
+					<?php   if (isset($_SESSION['admin']) && $_SESSION['admin']){?>
 					<th>Process</th>
                     <th>Reject</th>
+                    <?php }?>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,7 +22,7 @@
 
                     if (isset($_SESSION['admin']) && $_SESSION['admin']){
                     $arr=getAllPurchases();
-                    
+                    $count=0;
                     foreach($arr as $value){
                     
                     $totalprice=0;
@@ -33,10 +34,10 @@
 
 
 
-                   
-                   echo '<tr><td><a href="../pages/showPurchase.php?id='.$value['idpurchase'].'">'.$value['idpurchase'].'</td>
+                   $count=$count+1;
+                   echo '<tr><td><a href="../pages/showPurchase.php?id='.$value['idpurchase'].'">'.$count.'</td>
                     <td>'.getById($value['iduser'])['username'].'</td>
-                    <td>'.$totalprice.'</td>
+                    <td>'.$totalprice.'€</td>
                     
                     <td>'.$value['state'].'</td>';
                    
@@ -48,6 +49,34 @@
                     <input type="hidden" name="idpurchase" value="'.$value['idpurchase'].'">
                     <input type="hidden" name="iduser" value="'.$value['iduser'].'">
                     <input type="submit" value="Reject"></form>.</td></tr>';
+}
+
+}
+
+
+
+if (isset($_SESSION['iduser']) && !$_SESSION['admin']){
+$count=0;
+$arr=showallPurchasesUser($_SESSION['iduser']);
+foreach($arr as $value){
+
+$totalprice=0;
+
+$arr2=getallfrom1Purchase($value['idpurchase']);
+    foreach($arr2 as $purchaseproduct){
+    $totalprice=$totalprice+$purchaseproduct['price'];
+}
+$count=$count+1;
+ echo '<tr><td><a href="../pages/showPurchase.php?id='.$value['idpurchase'].'">'.$count.'</td>
+                    <td>'.getById($_SESSION['iduser'])['username'].'</td>
+                    <td>'.$totalprice.'€</td>
+                    <td>'.$value['state'].'</td></tr>';
+
+                   
+                   
+
+
+
 }
 
 }

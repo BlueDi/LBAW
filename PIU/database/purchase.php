@@ -21,4 +21,24 @@ function processPurchase($idpurchase,$state){
    
     
 }
+function selectPurchase($date,$iduser){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM purchase WHERE checkoutdate=? AND iduser=?");
+    $stmt->execute(array($date,$iduser));
+    return $stmt->fetch();
+}
+function selectPurchaseId($idpurchase){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM purchase WHERE idpurchase=?");
+    $stmt->execute(array($idpurchase));
+    return $stmt->fetch();
+}
+
+
+function showallPurchasesUser($iduser){
+    global $conn;
+    $stmt = $conn->prepare("SELECT * FROM purchase WHERE iduser=?");
+    $stmt->execute(array($iduser));
+    return $stmt->fetchAll();
+}
 ?>

@@ -75,7 +75,8 @@
 						</div>
                     </div>
                     <div class="snipcart-details agileinfo_single_right_details">
-                        <form action="#" method="post">
+                        <?php  if (isset($_SESSION['iduser'])) {?>
+                        <form action="../actions/shoppingcart/add.php" method="post">
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_cart"/>
                                 <input type="hidden" name="add" value="1"/>
@@ -93,13 +94,15 @@
                                         ';
                                     }
                                 ?>
-
+                                <input type="hidden" name="redirect" value="<?php echo 'single.php?id='.$val['idproduct']; ?>">
+                                <input type="hidden" name="id" value="<?php echo $val['idproduct']; ?>"/>
                                 <input type="hidden" name="currency_code" value="EUR"/>
                                 <input type="hidden" name="return" value=" "/>
                                 <input type="hidden" name="cancel_return" value=" "/>
                                 <input type="submit" name="submit" value="Add to cart" class="button"/>
                             </fieldset>
                         </form>
+                        <?php }?> 
                     </div>
                 </div>
 				

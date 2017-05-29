@@ -1,0 +1,83 @@
+<?php include("../templates/breadcrumb.html");?>
+<!-- banner -->
+<div class="banner">
+	<?php include("../templates/sidebar.html");?>
+	<div class="banner_nav_right">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Image</th>
+                    <th>Name</th>
+                    <th>Remove from Cart</th>
+                    <th>Quantity</th>
+                    <th>Actual price</th>
+                    
+				</tr>
+			</thead>
+			<tbody>
+                <?php 
+                     if (isset($_SESSION['iduser'])){
+                      date_default_timezone_set('Europe/Lisbon');
+                    $date = date('Y-m-d', time());
+
+
+                    $total=0;
+                   
+                    $arr=GetWholeCart($_SESSION['iduser']);
+                    
+                    foreach($arr as $value){
+                    
+                    if (GetCategoryPromo(getProductById($value['idproduct'])['idcategory'], $date)) {
+                $promo = GetCategoryPromo(getProductById($value['idproduct'])['idcategory'], $date)['promopercentage'];
+                $ispromo = true;
+                }
+
+            else{
+            $promo=0;
+            $ispromo=false;
+            }
+            $pricePromo = getProductById($value['idproduct'])['price'] - (getProductById($value['idproduct'])['price'] * $promo/100);
+            $total=$total+$pricePromo;
+
+
+                    echo '<tr>
+<td><img src="../images/'.getImageUrlFromProduct($value['idproduct'])['url'].'" alt="" height="42" width="42"/></td>
+<td><a href="../pages/single.php?id='.$value['idproduct'].'">'.getProductById($value['idproduct'])['name'].'</a></td>
+<td> <form action="../actions/shoppingcart/remove.php" method="post">
+                        <input type="hidden" name="Iduser" value="'.$_SESSION['iduser'].'"/>
+                        <input type="hidden" name="Idproduct" value="'.$value['idproduct'].'"/>
+                        <input type="hidden" name="shoppingcart" value="true"/>
+                        <input type="submit" name="add" value="X" /></form><td>
+
+<td>'.$value['quantity'].'</td>
+<td>'.$pricePromo.'€</td> </tr>';
+}
+echo'<tr>
+<td>Total Price:</td>
+<td></td>
+<td></td>
+<td></td>
+
+<td>';
+if($total>0){
+echo'<form action="../actions/purchase/checkout.php" method="post">
+                        <input type="submit" name="submit" value="Checkout" /></form>';
+}
+echo'</td>
+<td>'.
+$total.'€
+</td>
+</tr>';
+}
+else{
+echo'<tr><td><p>Please log in or register to manage your cart and start to make purchases</p></td>
+</tr>';
+}
+                 ?>
+				
+			</tbody>
+		</table>
+	</div>
+    
+	<div class="clearfix"></div>
+</div>
